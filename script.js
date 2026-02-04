@@ -1,11 +1,4 @@
-/**
- * CryptoLab - Образовательный портал по криптографии
- * Основной JavaScript файл
- */
-
-// Основной объект приложения
 const CryptoLab = {
-  // Инициализация
   init() {
     console.log('Инициализация');
 
@@ -18,16 +11,12 @@ const CryptoLab = {
     this.setupSmoothScroll();
     this.setupExamples();
     this.setupDemo();
-
-    // Инициализация информации об алгоритмах
     this.updateAlgorithmInfo();
-
     console.log('Всё гуд');
   },
 
   // Настройка обработчиков событий
   setupEventListeners() {
-    // Лаборатория
     const encryptBtn = document.getElementById('encryptBtn');
     const decryptBtn = document.getElementById('decryptBtn');
     const clearBtn = document.getElementById('clearBtn');
