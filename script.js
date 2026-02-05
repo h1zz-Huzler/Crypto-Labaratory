@@ -1,6 +1,13 @@
+/**
+ * CryptoLab - Образовательный портал по криптографии
+ * Основной JavaScript файл
+ */
+
+// Основной объект приложения
 const CryptoLab = {
+  // Инициализация
   init() {
-    console.log('Инициализация');
+    console.log('🚀 CryptoLab инициализируется...');
 
     this.setupEventListeners();
     this.setupScrollIndicator();
@@ -11,12 +18,17 @@ const CryptoLab = {
     this.setupSmoothScroll();
     this.setupExamples();
     this.setupDemo();
+    this.setupHistorySection();
+
+    // Инициализация информации об алгоритмах
     this.updateAlgorithmInfo();
-    console.log('Всё гуд');
+
+    console.log('✅ CryptoLab готов к работе!');
   },
 
   // Настройка обработчиков событий
   setupEventListeners() {
+    // Лаборатория
     const encryptBtn = document.getElementById('encryptBtn');
     const decryptBtn = document.getElementById('decryptBtn');
     const clearBtn = document.getElementById('clearBtn');
@@ -24,12 +36,18 @@ const CryptoLab = {
     const keyGenerateBtn = document.getElementById('keyGenerate');
     const algorithmSelect = document.getElementById('algorithmSelect');
 
-    if (encryptBtn) encryptBtn.addEventListener('click', () => this.handleEncrypt());
-    if (decryptBtn) decryptBtn.addEventListener('click', () => this.handleDecrypt());
+    if (encryptBtn)
+      encryptBtn.addEventListener('click', () => this.handleEncrypt());
+    if (decryptBtn)
+      decryptBtn.addEventListener('click', () => this.handleDecrypt());
     if (clearBtn) clearBtn.addEventListener('click', () => this.handleClear());
     if (copyBtn) copyBtn.addEventListener('click', () => this.handleCopy());
-    if (keyGenerateBtn) keyGenerateBtn.addEventListener('click', () => this.generateKey());
-    if (algorithmSelect) algorithmSelect.addEventListener('change', () => this.updateAlgorithmInfo());
+    if (keyGenerateBtn)
+      keyGenerateBtn.addEventListener('click', () => this.generateKey());
+    if (algorithmSelect)
+      algorithmSelect.addEventListener('change', () =>
+        this.updateAlgorithmInfo(),
+      );
   },
 
   // Навигация
@@ -50,7 +68,7 @@ const CryptoLab = {
       });
 
       // Закрытие меню при клике на ссылку
-      document.querySelectorAll('.nav-link').forEach(link => {
+      document.querySelectorAll('.nav-link').forEach((link) => {
         link.addEventListener('click', () => {
           navMenu.classList.remove('active');
           navToggle.querySelector('i').classList.add('fa-bars');
@@ -66,8 +84,8 @@ const CryptoLab = {
 
   // Плавный скролл
   setupSmoothScroll() {
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
+    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+      anchor.addEventListener('click', function (e) {
         const href = this.getAttribute('href');
 
         // Пропускаем якорь без id
@@ -84,7 +102,7 @@ const CryptoLab = {
 
         window.scrollTo({
           top: targetPosition,
-          behavior: 'smooth'
+          behavior: 'smooth',
         });
 
         // Обновляем URL без перезагрузки
@@ -103,16 +121,19 @@ const CryptoLab = {
     let currentSection = '';
     const scrollPosition = window.scrollY + 100;
 
-    sections.forEach(section => {
+    sections.forEach((section) => {
       const sectionTop = section.offsetTop;
       const sectionHeight = section.clientHeight;
 
-      if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+      if (
+        scrollPosition >= sectionTop &&
+        scrollPosition < sectionTop + sectionHeight
+      ) {
         currentSection = section.getAttribute('id');
       }
     });
 
-    navLinks.forEach(link => {
+    navLinks.forEach((link) => {
       link.classList.remove('active');
       if (link.getAttribute('href') === `#${currentSection}`) {
         link.classList.add('active');
@@ -127,7 +148,9 @@ const CryptoLab = {
     if (!scrollProgress) return;
 
     window.addEventListener('scroll', () => {
-      const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const windowHeight =
+        document.documentElement.scrollHeight -
+        document.documentElement.clientHeight;
       const scrolled = (window.scrollY / windowHeight) * 100;
       scrollProgress.style.width = `${scrolled}%`;
 
@@ -158,7 +181,7 @@ const CryptoLab = {
     scrollTopBtn.addEventListener('click', () => {
       window.scrollTo({
         top: 0,
-        behavior: 'smooth'
+        behavior: 'smooth',
       });
     });
   },
@@ -188,7 +211,7 @@ const CryptoLab = {
     updateCounter(); // Инициализация
   },
 
-  // Карусель
+  // Карусель (МЕДЛЕННАЯ - 12 секунд)
   setupCarousel() {
     const carouselTrack = document.getElementById('carouselTrack');
     const prevBtn = document.getElementById('prevBtn');
@@ -255,7 +278,7 @@ const CryptoLab = {
       });
     });
 
-    // Автоматическая прокрутка
+    // Автоматическая прокрутка - 12 СЕКУНД (медленно)
     const startAutoSlide = () => {
       autoSlideInterval = setInterval(() => {
         goToSlide(currentIndex + 1);
@@ -295,11 +318,42 @@ const CryptoLab = {
     startAutoSlide();
   },
 
+  // Историческая справка
+  setupHistorySection() {
+    this.setupTimelineAnimation();
+    this.setupHistoryQuiz();
+  },
+
+  // Анимация таймлайна при скролле
+  setupTimelineAnimation() {
+    const timelineItems = document.querySelectorAll('.timeline-item');
+
+    if (!timelineItems.length) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      },
+      {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px',
+      },
+    );
+
+    timelineItems.forEach((item) => {
+      observer.observe(item);
+    });
+  },
+
   // Быстрые примеры
   setupExamples() {
     const exampleBtns = document.querySelectorAll('.example-btn');
 
-    exampleBtns.forEach(btn => {
+    exampleBtns.forEach((btn) => {
       btn.addEventListener('click', () => {
         const text = btn.getAttribute('data-text');
         const algo = btn.getAttribute('data-algo');
@@ -324,7 +378,10 @@ const CryptoLab = {
         }
 
         // Показываем уведомление
-        this.showNotification(`Пример загружен: ${btn.querySelector('.example-text').textContent}`, 'info');
+        this.showNotification(
+          `Пример загружен: ${btn.querySelector('.example-text').textContent}`,
+          'info',
+        );
       });
     });
   },
@@ -340,7 +397,9 @@ const CryptoLab = {
         const algorithmSelect = document.getElementById('algorithmSelect');
         const keyInput = document.getElementById('keyInput');
 
-        if (inputText) inputText.value = 'Демонстрация работы криптографической лаборатории CryptoLab';
+        if (inputText)
+          inputText.value =
+            'Демонстрация работы криптографической лаборатории CryptoLab';
         if (algorithmSelect) algorithmSelect.value = 'vigenere';
         if (keyInput) keyInput.value = 'демо';
 
@@ -365,7 +424,8 @@ const CryptoLab = {
     if (!keyInput) return;
 
     // Генерируем случайный ключ
-    const chars = 'абвгдеёжзийклмнопрстуфхцчшщъыьэюяabcdefghijklmnopqrstuvwxyz0123456789';
+    const chars =
+      'абвгдеёжзийклмнопрстуфхцчшщъыьэюяabcdefghijklmnopqrstuvwxyz0123456789';
     let key = '';
 
     // Длина ключа от 8 до 16 символов
@@ -389,24 +449,29 @@ const CryptoLab = {
     const algorithms = {
       caesar: {
         name: 'Шифр Цезаря',
-        description: 'разновидность шифра подстановки, в котором каждый символ в открытом тексте заменяется символом, находящимся на некотором постоянном числе позиций левее или правее него в алфавите.'
+        description:
+          'Один из древнейших методов шифрования, названный в честь Юлия Цезаря. Каждая буква в тексте заменяется буквой, находящейся на фиксированное число позиций дальше в алфавите. Простой в реализации, но уязвим к частотному анализу.',
       },
       vigenere: {
         name: 'Шифр Виженера',
-        description: 'метод полиалфавитного шифрования буквенного текста с использованием ключевого слова. Этот метод является простой формой многоалфавитной замены. Шифр Виженера изобретался многократно.'
+        description:
+          'Полиалфавитный шифр, использующий ключевое слово для шифрования. Более безопасен, чем шифр Цезаря, так как использует разные сдвиги для разных позиций в тексте. Считался невзламываемым на протяжении трех столетий.',
       },
       xor: {
         name: 'XOR шифрование',
-        description: 'Алгоритм xor-шифрования является одним из самых простых линейных симметричных алгоритмов шифрования. Работа алгоритма заключается в последовательном цикличном кодировании символов входной последовательности с символами шифр-ключа.'
+        description:
+          'Использует операцию исключающего ИЛИ (XOR) между текстом и ключом. Если ключ короче текста, он повторяется. Широко используется в компьютерных системах благодаря простоте и скорости, но требует случайного ключа для безопасности.',
       },
       base64: {
         name: 'Base64 кодирование',
-        description: 'Стандарт кодирования двоичных данных при помощи только 64 символов ASCII. Используется для передачи данных через текстовые протоколы (email, HTTP).'
+        description:
+          'Схема кодирования двоичных данных в текстовый формат ASCII. Не является шифрованием в строгом смысле, так как не использует ключ и легко обратима. Используется для передачи данных через текстовые протоколы (email, HTTP).',
       },
       atbash: {
         name: 'Шифр Атбаш',
-        description: 'простой шифр подстановки для алфавитного письма. Правило шифрования состоит в замене i-й буквы алфавита буквой с номером n−i+1 где n-число букв в алфавите. Впервые встречается в древнееврейском тексте Библии / Танаха.'
-      }
+        description:
+          'Моноалфавитный шифр подстановки, в котором первая буква алфавита заменяется на последнюю, вторая — на предпоследнюю и так далее. Использовался в древних текстах, включая Библию.',
+      },
     };
 
     const selected = algorithmSelect.value;
@@ -504,26 +569,29 @@ const CryptoLab = {
     outputText.setSelectionRange(0, 99999); // Для мобильных
 
     try {
-      navigator.clipboard.writeText(outputText.value).then(() => {
-        this.showNotification('Текст скопирован в буфер обмена', 'success');
+      navigator.clipboard
+        .writeText(outputText.value)
+        .then(() => {
+          this.showNotification('Текст скопирован в буфер обмена', 'success');
 
-        // Визуальная обратная связь
-        const copyBtn = document.getElementById('copyBtn');
-        if (copyBtn) {
-          const originalHTML = copyBtn.innerHTML;
-          copyBtn.innerHTML = '<i class="fas fa-check"></i>';
-          copyBtn.style.backgroundColor = 'var(--success)';
+          // Визуальная обратная связь
+          const copyBtn = document.getElementById('copyBtn');
+          if (copyBtn) {
+            const originalHTML = copyBtn.innerHTML;
+            copyBtn.innerHTML = '<i class="fas fa-check"></i>';
+            copyBtn.style.backgroundColor = 'var(--success)';
 
-          setTimeout(() => {
-            copyBtn.innerHTML = originalHTML;
-            copyBtn.style.backgroundColor = '';
-          }, 2000);
-        }
-      }).catch(err => {
-        // Fallback для старых браузеров
-        document.execCommand('copy');
-        this.showNotification('Текст скопирован в буфер обмена', 'success');
-      });
+            setTimeout(() => {
+              copyBtn.innerHTML = originalHTML;
+              copyBtn.style.backgroundColor = '';
+            }, 2000);
+          }
+        })
+        .catch((err) => {
+          // Fallback для старых браузеров
+          document.execCommand('copy');
+          this.showNotification('Текст скопирован в буфер обмена', 'success');
+        });
     } catch (err) {
       this.showNotification('Не удалось скопировать текст', 'error');
     }
@@ -578,24 +646,36 @@ const CryptoLab = {
       const charCode = text.charCodeAt(i);
 
       // Русские буквы
-      if (charCode >= 1040 && charCode <= 1071) { // А-Я
+      if (charCode >= 1040 && charCode <= 1071) {
+        // А-Я
         const base = 1040;
         const offset = encrypt ? shift : -shift;
-        char = String.fromCharCode(((charCode - base + offset + 32) % 32) + base);
-      } else if (charCode >= 1072 && charCode <= 1103) { // а-я
+        char = String.fromCharCode(
+          ((charCode - base + offset + 32) % 32) + base,
+        );
+      } else if (charCode >= 1072 && charCode <= 1103) {
+        // а-я
         const base = 1072;
         const offset = encrypt ? shift : -shift;
-        char = String.fromCharCode(((charCode - base + offset + 32) % 32) + base);
+        char = String.fromCharCode(
+          ((charCode - base + offset + 32) % 32) + base,
+        );
       }
       // Английские буквы
-      else if (charCode >= 65 && charCode <= 90) { // A-Z
+      else if (charCode >= 65 && charCode <= 90) {
+        // A-Z
         const base = 65;
         const offset = encrypt ? shift : -shift;
-        char = String.fromCharCode(((charCode - base + offset + 26) % 26) + base);
-      } else if (charCode >= 97 && charCode <= 122) { // a-z
+        char = String.fromCharCode(
+          ((charCode - base + offset + 26) % 26) + base,
+        );
+      } else if (charCode >= 97 && charCode <= 122) {
+        // a-z
         const base = 97;
         const offset = encrypt ? shift : -shift;
-        char = String.fromCharCode(((charCode - base + offset + 26) % 26) + base);
+        char = String.fromCharCode(
+          ((charCode - base + offset + 26) % 26) + base,
+        );
       }
 
       result += char;
@@ -618,16 +698,20 @@ const CryptoLab = {
 
       // Определяем алфавит
       let alphabetSize, base;
-      if (charCode >= 1040 && charCode <= 1071) { // А-Я
+      if (charCode >= 1040 && charCode <= 1071) {
+        // А-Я
         alphabetSize = 32;
         base = 1040;
-      } else if (charCode >= 1072 && charCode <= 1103) { // а-я
+      } else if (charCode >= 1072 && charCode <= 1103) {
+        // а-я
         alphabetSize = 32;
         base = 1072;
-      } else if (charCode >= 65 && charCode <= 90) { // A-Z
+      } else if (charCode >= 65 && charCode <= 90) {
+        // A-Z
         alphabetSize = 26;
         base = 65;
-      } else if (charCode >= 97 && charCode <= 122) { // a-z
+      } else if (charCode >= 97 && charCode <= 122) {
+        // a-z
         alphabetSize = 26;
         base = 97;
       } else {
@@ -638,11 +722,13 @@ const CryptoLab = {
       // Сдвиг из ключа
       const keyChar = cleanKey[keyIndex % cleanKey.length];
       const keyCharCode = keyChar.charCodeAt(0);
-      const keyShift = keyCharCode >= 1072 ? keyCharCode - 1072 : keyCharCode - 97;
+      const keyShift =
+        keyCharCode >= 1072 ? keyCharCode - 1072 : keyCharCode - 97;
 
       // Применяем сдвиг
       const offset = encrypt ? keyShift : -keyShift;
-      const newCharCode = ((charCode - base + offset + alphabetSize) % alphabetSize) + base;
+      const newCharCode =
+        ((charCode - base + offset + alphabetSize) % alphabetSize) + base;
       char = String.fromCharCode(newCharCode);
 
       result += char;
@@ -675,15 +761,19 @@ const CryptoLab = {
       const charCode = text.charCodeAt(i);
 
       // Русские буквы
-      if (charCode >= 1040 && charCode <= 1071) { // А-Я
+      if (charCode >= 1040 && charCode <= 1071) {
+        // А-Я
         result += String.fromCharCode(1071 - (charCode - 1040));
-      } else if (charCode >= 1072 && charCode <= 1103) { // а-я
+      } else if (charCode >= 1072 && charCode <= 1103) {
+        // а-я
         result += String.fromCharCode(1103 - (charCode - 1072));
       }
       // Английские буквы
-      else if (charCode >= 65 && charCode <= 90) { // A-Z
+      else if (charCode >= 65 && charCode <= 90) {
+        // A-Z
         result += String.fromCharCode(90 - (charCode - 65));
-      } else if (charCode >= 97 && charCode <= 122) { // a-z
+      } else if (charCode >= 97 && charCode <= 122) {
+        // a-z
         result += String.fromCharCode(122 - (charCode - 97));
       }
       // Остальные символы
@@ -710,8 +800,10 @@ const CryptoLab = {
   // Уведомления
   showNotification(message, type = 'info') {
     // Удаляем предыдущие уведомления
-    const existingNotifications = document.querySelectorAll('.custom-notification');
-    existingNotifications.forEach(notification => {
+    const existingNotifications = document.querySelectorAll(
+      '.custom-notification',
+    );
+    existingNotifications.forEach((notification) => {
       notification.remove();
     });
 
@@ -723,7 +815,7 @@ const CryptoLab = {
       success: 'fa-check-circle',
       error: 'fa-exclamation-circle',
       warning: 'fa-exclamation-triangle',
-      info: 'fa-info-circle'
+      info: 'fa-info-circle',
     };
 
     notification.innerHTML = `
@@ -736,42 +828,12 @@ const CryptoLab = {
             </button>
         `;
 
-    // Стили
-    Object.assign(notification.style, {
-      position: 'fixed',
-      top: '20px',
-      right: '20px',
-      background: type === 'success' ? '#10b981' :
-        type === 'error' ? '#ef4444' :
-          type === 'warning' ? '#f59e0b' :
-            '#3b82f6',
-      color: 'white',
-      padding: '15px 20px',
-      borderRadius: 'var(--radius)',
-      boxShadow: 'var(--shadow-lg)',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'space-between',
-      gap: '15px',
-      minWidth: '300px',
-      maxWidth: '400px',
-      zIndex: '10000',
-      transform: 'translateX(120%)',
-      transition: 'transform 0.3s ease',
-      animation: 'slideInRight 0.3s ease forwards'
-    });
-
     document.body.appendChild(notification);
 
-    // Анимация появления
-    setTimeout(() => {
-      notification.style.transform = 'translateX(0)';
-    }, 10);
-
-    // Закрытие по клику
+    // Анимация закрытия
     const closeBtn = notification.querySelector('.notification-close');
     closeBtn.addEventListener('click', () => {
-      notification.style.transform = 'translateX(120%)';
+      notification.style.animation = 'slideOutRight 0.3s ease forwards';
       setTimeout(() => {
         if (notification.parentNode) {
           notification.remove();
@@ -779,10 +841,10 @@ const CryptoLab = {
       }, 300);
     });
 
-    // Автоматическое закрытие
+    // Автоматическое закрытие через 5 секунд
     setTimeout(() => {
       if (notification.parentNode) {
-        notification.style.transform = 'translateX(120%)';
+        notification.style.animation = 'slideOutRight 0.3s ease forwards';
         setTimeout(() => {
           if (notification.parentNode) {
             notification.remove();
@@ -790,47 +852,7 @@ const CryptoLab = {
         }, 300);
       }
     }, 5000);
-
-    // CSS для анимации
-    if (!document.querySelector('#notification-styles')) {
-      const style = document.createElement('style');
-      style.id = 'notification-styles';
-      style.textContent = `
-                @keyframes slideInRight {
-                    from {
-                        transform: translateX(120%);
-                        opacity: 0;
-                    }
-                    to {
-                        transform: translateX(0);
-                        opacity: 1;
-                    }
-                }
-                
-                .notification-content {
-                    display: flex;
-                    align-items: center;
-                    gap: 10px;
-                    flex: 1;
-                }
-                
-                .notification-close {
-                    background: none;
-                    border: none;
-                    color: white;
-                    cursor: pointer;
-                    padding: 4px;
-                    opacity: 0.7;
-                    transition: opacity 0.3s ease;
-                }
-                
-                .notification-close:hover {
-                    opacity: 1;
-                }
-            `;
-      document.head.appendChild(style);
-    }
-  }
+  },
 };
 
 // Инициализация при загрузке страницы
