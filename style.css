@@ -1,17 +1,17 @@
 
 :root {
 
-    --primary: #6366f1;
-    --primary-dark: #4f46e5;
-    --primary-light: #818cf8;
-    --secondary: #8b5cf6;
-    --accent: #06b6d4;
+    --primary: #009eff;
+    --primary-dark: #0da9d9;
+    --primary-light: #12b3ab;
+    --secondary: #00c598;
+    --accent: #1c0438;
     --success: #10b981;
-    --warning: #f59e0b;
-    --danger: #ef4444;
+    --warning: #ffb11e;
+    --danger: #e35342;
     --info: #3b82f6;
 
-    --dark: #0f172a;
+    --dark: #363970;
     --dark-light: #1e293b;
     --gray: #64748b;
     --gray-light: #e2e8f0;
@@ -245,7 +245,7 @@ body {
     font-weight: 800;
     line-height: 1.1;
     margin-bottom: 1.5rem;
-    background: linear-gradient(90deg, #60a5fa, #a78bfa);
+    background: linear-gradient(90deg, #3485e2, #2c946a);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
@@ -406,12 +406,12 @@ body {
 }
 
 .btn-success {
-    background: linear-gradient(135deg, var(--success), #059669);
+    background: linear-gradient(135deg, var(--success), #50cd6d);
     color: var(--white);
 }
 
 .btn-warning {
-    background: linear-gradient(135deg, var(--warning), #d97706);
+    background: linear-gradient(135deg, var(--warning), #d99c0f);
     color: var(--white);
 }
 
