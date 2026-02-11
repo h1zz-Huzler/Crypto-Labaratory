@@ -16,15 +16,12 @@ const CryptoLab = {
     this.setupHistorySection();
     this.setupLikeSystem();
 
-
     this.updateAlgorithmInfo();
 
     console.log('всё ок');
   },
 
-
   setupEventListeners() {
-
     const encryptBtn = document.getElementById('encryptBtn');
     const decryptBtn = document.getElementById('decryptBtn');
     const clearBtn = document.getElementById('clearBtn');
@@ -322,9 +319,7 @@ const CryptoLab = {
     });
   },
 
-
-
-  // СИСТЕМА ЛАЙКОВ
+  // Система лайков - ЧЕСТНАЯ ВЕРСИЯ
   setupLikeSystem() {
     const likeButton = document.getElementById('likeButton');
     const likeIcon = document.getElementById('likeIcon');
@@ -339,21 +334,26 @@ const CryptoLab = {
     const STORAGE_KEY = 'cryptolab_likes';
     const USER_STORAGE_KEY = 'cryptolab_user_liked';
 
-    let totalLikes = 299;
+    // УБИРАЕМ ВСЕ ИМИТАЦИИ - ВСЕ ПОЛЬЗОВАТЕЛИ НЕ ЛАЙКАЛИ
+    const users = [
+      { name: 'Алексей', avatar: 'А', liked: false },
+      { name: 'Мария', avatar: 'М', liked: false },
+      { name: 'Дмитрий', avatar: 'Д', liked: false },
+      { name: 'Елена', avatar: 'Е', liked: false },
+      { name: 'Сергей', avatar: 'С', liked: false },
+    ];
+
+    // НАЧИНАЕМ С 0, А НЕ С 128
+    let totalLikes = localStorage.getItem(STORAGE_KEY)
+      ? parseInt(localStorage.getItem(STORAGE_KEY))
+      : 0;
     let userLiked = localStorage.getItem(USER_STORAGE_KEY) === 'true';
 
     const init = () => {
       updateLikeCount(totalLikes);
       updateLikeButtonState(userLiked);
       updateUsersList();
-      createParticles(3);
-
-      setTimeout(() => {
-        likeIcon.classList.add('active');
-        setTimeout(() => {
-          likeIcon.classList.remove('active');
-        }, 500);
-      }, 1000);
+      // УБИРАЕМ АВТОМАТИЧЕСКУЮ АНИМАЦИЮ СЕРДЕЧКА
     };
 
     const updateLikeCount = (count) => {
@@ -406,31 +406,32 @@ const CryptoLab = {
       if (!likeUsers) return;
 
       const displayUsers = [];
-      if (userLiked) {
-        displayUsers.push({ name: 'Вы', avatar: 'Вы', liked: true });
-      }
 
-      users.slice(0, 4).forEach((user) => {
-        displayUsers.push(user);
+
+      // ДОБАВЛЯЕМ ТОЛЬКО ТЕХ, У КОГО liked: true
+      users.forEach((user) => {
+        if (user.liked) {
+          displayUsers.push(user);
+        }
       });
 
       let usersHTML = `<div class="like-users-list">`;
 
-      displayUsers.forEach((user) => {
+      displayUsers.slice(0, 5).forEach((user) => {
         usersHTML += `
-                    <div class="like-user-avatar" title="${user.name}">
-                        ${user.avatar}
-                    </div>
-                `;
+                <div class="like-user-avatar" title="${user.name}">
+                    ${user.avatar}
+                </div>
+            `;
       });
 
       usersHTML += `
-                </div>
-                <div class="like-total">
-                    <i class="fas fa-heart" style="color: #ef4444;"></i>
-                    ${totalLikes.toLocaleString()} всего
-                </div>
-            `;
+            </div>
+            <div class="like-total">
+                <i class="fas fa-heart" style="color: #ef4444;"></i>
+                ${totalLikes.toLocaleString()} всего
+            </div>
+        `;
 
       likeUsers.innerHTML = usersHTML;
     };
@@ -456,9 +457,9 @@ const CryptoLab = {
         const achievements = [
           '🎉 Спасибо за поддержку!',
           '❤️ Вы сделали этот проект лучше!',
-          '🌟 Вы присоединились к команде ценителей криптографии!',
+          '🌟 Спасибо, что вы с нами!',
           '💝 Ваш лайк вдохновляет на новые идеи!',
-          '✨ Спасибо, что вы с нами!',
+          '✨ Спасибо за ваш лайк!',
         ];
         const randomAchievement =
           achievements[Math.floor(Math.random() * achievements.length)];
