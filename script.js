@@ -339,9 +339,7 @@ const CryptoLab = {
     const STORAGE_KEY = 'cryptolab_likes';
     const USER_STORAGE_KEY = 'cryptolab_user_liked';
 
-    let totalLikes = localStorage.getItem(STORAGE_KEY)
-      ? parseInt(localStorage.getItem(STORAGE_KEY))
-      : 198;
+    let totalLikes = 299;
     let userLiked = localStorage.getItem(USER_STORAGE_KEY) === 'true';
 
     const init = () => {
