@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="style.css">
   <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔒</text></svg>">
 </head>
+</section>
 <body>
 
 <div class="scroll-indicator" id="scrollIndicator">
@@ -282,6 +283,9 @@
           <div class="output-actions">
             <button id="copyBtn" class="btn-icon" aria-label="Копировать результат">
               <i class="fas fa-copy"></i>
+            </button>
+            <button id="downloadBtn" class="btn-icon" aria-label="Скачать результат">
+              <i class="fas fa-download"></i>
             </button>
           </div>
         </div>
@@ -591,7 +595,34 @@
     </div>
   </div>
 </section>
-
+<!-- Секция лайков -->
+<section class="like-section">
+  <div class="container">
+    <div class="like-card">
+      <div class="like-content">
+        <div class="like-icon-wrapper">
+          <i class="fas fa-heart like-icon" id="likeIcon"></i>
+          <div class="like-particle-container" id="particleContainer"></div>
+        </div>
+        <div class="like-info">
+          <h3 class="like-title">Понравился проект?</h3>
+          <p class="like-description">Поддержите нас лайком! Это мотивирует создавать больше образовательного контента.</p>
+        </div>
+        <div class="like-stats">
+          <button class="like-button" id="likeButton">
+                            <span class="like-button-icon">
+                                <i class="fas fa-heart"></i>
+                            </span>
+            <span class="like-button-text" id="likeButtonText">Нравится</span>
+            <span class="like-count" id="likeCount">0</span>
+          </button>
+          <div class="like-achievement" id="likeAchievement"></div>
+        </div>
+      </div>
+      <div class="like-users" id="likeUsers"></div>
+    </div>
+  </div>
+</section>
 <footer class="footer" id="contact">
   <div class="container">
     <div class="footer-content">
@@ -604,7 +635,7 @@
           Образовательная платформа по криптографии и информационной безопасности.
         </p>
         <div class="social-links">
-          <a href="https://github.com/hiztin" class="social-link" aria-label="GitHub">
+          <a href="https://github.com/h1zz-Huzler" class="social-link" aria-label="GitHub">
             <i class="fab fa-github"></i>
           </a>
         </div>
