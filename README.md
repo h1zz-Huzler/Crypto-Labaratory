@@ -7,7 +7,8 @@
 ![GitHub](https://img.shields.io/github/license/h1zz-Huzler/Crypto-Lab-Site?style=flat-square)
 
 Это мой школьный проект по криптографии, ни больше, ни меньше
-https://h1zz-huzler.github.io/Crypto-Lab-Site/
+
+
 
 # 🚀 Что есть на сайте:
 
