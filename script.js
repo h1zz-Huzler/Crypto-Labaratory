@@ -1,7 +1,15 @@
+/**
+ * CryptoLab - Образовательный портал по криптографии
+ * Полная версия JavaScript файла
+ * Версия: 3.5
+ * Дата: 2026
+ */
+
 
 const CryptoLab = {
+
   init() {
-    console.log('Инициализация');
+    console.log('гоооол');
 
     this.setupEventListeners();
     this.setupScrollIndicator();
@@ -15,13 +23,15 @@ const CryptoLab = {
     this.setupHistorySection();
     this.setupLikeSystem();
     this.setupChecklist();
+
+    // Инициализация информации об алгоритмах
     this.updateAlgorithmInfo();
 
     console.log('всё ок');
   },
 
   setupEventListeners() {
- 
+    // Лаборатория
     const encryptBtn = document.getElementById('encryptBtn');
     const decryptBtn = document.getElementById('decryptBtn');
     const clearBtn = document.getElementById('clearBtn');
@@ -46,7 +56,7 @@ const CryptoLab = {
       );
   },
 
-
+  //НАВИГАЦИЯ
   setupNavigation() {
     const navToggle = document.getElementById('navToggle');
     const navMenu = document.getElementById('navMenu');
@@ -103,7 +113,7 @@ const CryptoLab = {
     });
   },
 
-  // ===== ПЛАВНЫЙ СКРОЛЛ =====
+  //ПЛАВНЫЙ СКРОЛЛ
   setupSmoothScroll() {
     document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
       anchor.addEventListener('click', function (e) {
@@ -130,7 +140,7 @@ const CryptoLab = {
     });
   },
 
-
+  // ИНДИКАТОР ПРОКРУТКИ
   setupScrollIndicator() {
     const scrollProgress = document.getElementById('scrollProgress');
     if (!scrollProgress) return;
@@ -151,6 +161,7 @@ const CryptoLab = {
     });
   },
 
+  // КНОПКА "НАВЕРХ"
   setupScrollToTop() {
     const scrollTopBtn = document.getElementById('scrollTop');
     if (!scrollTopBtn) return;
@@ -171,6 +182,7 @@ const CryptoLab = {
     });
   },
 
+  //  СЧЕТЧИК СИМВОЛОВ
   setupCharacterCounter() {
     const inputText = document.getElementById('inputText');
     const charCount = document.getElementById('charCount');
@@ -193,13 +205,13 @@ const CryptoLab = {
     updateCounter();
   },
 
-
+  // ИСТОРИЧЕСКАЯ СПРАВКА
   setupHistorySection() {
     this.setupTimelineAnimation();
 
   },
 
-  
+  // АНИМАЦИЯ ТАЙМЛАЙНА
   setupTimelineAnimation() {
     const timelineItems = document.querySelectorAll('.timeline-item');
     if (!timelineItems.length) return;
@@ -240,6 +252,7 @@ const CryptoLab = {
     const USER_STORAGE_KEY = 'cryptolab_user_liked';
 
 
+    // Стартуем с 0 лайков
     let totalLikes = 666;
     let userLiked = localStorage.getItem(USER_STORAGE_KEY) === 'true';
 
@@ -247,7 +260,7 @@ const CryptoLab = {
       updateLikeCount(totalLikes);
       updateLikeButtonState(userLiked);
       updateUsersList();
-
+      // Убрана автоматическая анимация сердечка при загрузке
     };
 
     const updateLikeCount = (count) => {
@@ -375,6 +388,7 @@ const CryptoLab = {
     init();
   },
 
+  // ЧЕК-ЛИСТ БЕЗОПАСНОСТИ
   setupChecklist() {
     const checkboxes = document.querySelectorAll(
       '.checklist-item input[type="checkbox"]',
@@ -386,6 +400,7 @@ const CryptoLab = {
 
     const CHECKLIST_STORAGE_KEY = 'cryptolab_checklist';
 
+    // Загружаем сохранённое состояние
     const savedState = localStorage.getItem(CHECKLIST_STORAGE_KEY);
     if (savedState) {
       try {
@@ -407,9 +422,11 @@ const CryptoLab = {
       const total = checkboxes.length;
       progressEl.textContent = `${checkedCount}/${total} выполнено`;
 
+      // Сохраняем состояние
       const states = Array.from(checkboxes).map((cb) => cb.checked);
       localStorage.setItem(CHECKLIST_STORAGE_KEY, JSON.stringify(states));
 
+      // Поздравление при полном выполнении
       if (checkedCount === total && total > 0 && checkedCount > 0) {
         this.showNotification(
           '🎉 Отлично! Вы выполнили все пункты безопасности!',
@@ -418,11 +435,12 @@ const CryptoLab = {
       }
     };
 
-
+    // Добавляем обработчики
     checkboxes.forEach((checkbox) => {
       checkbox.addEventListener('change', updateProgress);
     });
 
+    // Сброс чек-листа
     if (resetBtn) {
       resetBtn.addEventListener('click', () => {
         checkboxes.forEach((cb) => {
@@ -433,10 +451,11 @@ const CryptoLab = {
       });
     }
 
+    // Инициализация
     updateProgress();
   },
 
-
+  // ===== БЫСТРЫЕ ПРИМЕРЫ =====
   setupExamples() {
     const exampleBtns = document.querySelectorAll('.example-btn');
 
@@ -471,6 +490,7 @@ const CryptoLab = {
     });
   },
 
+  // ===== ДЕМО-РЕЖИМ =====
   setupDemo() {
     const demoBtn = document.getElementById('demoBtn');
 
@@ -498,6 +518,7 @@ const CryptoLab = {
     }
   },
 
+
   generateKey() {
     const keyInput = document.getElementById('keyInput');
     if (!keyInput) return;
@@ -515,6 +536,7 @@ const CryptoLab = {
     this.showNotification(`Сгенерирован новый ключ: ${key}`, 'info');
   },
 
+  // ОБНОВЛЕНИЕ ИНФОРМАЦИИ ОБ АЛГОРИТМЕ
   updateAlgorithmInfo() {
     const algorithmSelect = document.getElementById('algorithmSelect');
     const algorithmInfo = document.getElementById('algorithmInfo');
@@ -612,6 +634,7 @@ const CryptoLab = {
     }
   },
 
+
   handleClear() {
     const inputText = document.getElementById('inputText');
     const outputText = document.getElementById('outputText');
@@ -626,6 +649,7 @@ const CryptoLab = {
     this.showNotification('Все поля очищены', 'info');
     if (inputText) inputText.focus();
   },
+
 
   handleCopy() {
     const outputText = document.getElementById('outputText');
@@ -664,6 +688,7 @@ const CryptoLab = {
       this.showNotification('Не удалось скопировать текст', 'error');
     }
   },
+
 
   handleDownload() {
     const outputText = document.getElementById('outputText');
@@ -722,6 +747,7 @@ const CryptoLab = {
     }
   },
 
+
   caesarCipher(text, key, encrypt) {
     const shift = this.calculateShift(key);
     let result = '';
@@ -730,15 +756,16 @@ const CryptoLab = {
       let char = text[i];
       const charCode = text.charCodeAt(i);
 
+      // Русские буквы
       if (charCode >= 1040 && charCode <= 1071) {
-
+        // А-Я
         const base = 1040;
         const offset = encrypt ? shift : -shift;
         char = String.fromCharCode(
           ((charCode - base + offset + 32) % 32) + base,
         );
       } else if (charCode >= 1072 && charCode <= 1103) {
-
+        // а-я
         const base = 1072;
         const offset = encrypt ? shift : -shift;
         char = String.fromCharCode(
@@ -771,7 +798,7 @@ const CryptoLab = {
     return result;
   },
 
-
+  //  ШИФР ВИЖЕНЕРА
   vigenereCipher(text, key, encrypt) {
     const cleanKey = key.toLowerCase().replace(/[^а-яa-z]/g, '');
     if (cleanKey.length === 0) return text;
@@ -822,6 +849,7 @@ const CryptoLab = {
     return result;
   },
 
+  //XOR ШИФРОВАНИЕ
   xorCipher(text, key) {
     if (!key) return text;
 
@@ -835,6 +863,7 @@ const CryptoLab = {
     return result;
   },
 
+  //  ШИФР АТБАШ
   atbashCipher(text) {
     let result = '';
 
@@ -867,7 +896,7 @@ const CryptoLab = {
     return result;
   },
 
-  // ВЫЧИСЛЕНИЕ СДВИГА ДЛЯ ЦЕЗАРЯ
+  //ВЫЧИСЛЕНИЕ СДВИГА ДЛЯ ЦЕЗАРЯ
   calculateShift(key) {
     if (!key) return 3;
 
@@ -879,7 +908,7 @@ const CryptoLab = {
     return (sum % 25) + 1;
   },
 
-  //  УВЕДОМЛЕНИЯ 
+  //  УВЕДОМЛЕНИЯ
   showNotification(message, type = 'info') {
     const existingNotifications = document.querySelectorAll(
       '.custom-notification',
@@ -933,11 +962,204 @@ const CryptoLab = {
   },
 };
 
-// ИНИЦИАЛИЗАЦИЯ ПРИ ЗАГРУЗКЕ
+//ИНИЦИАЛИЗАЦИЯ ПРИ ЗАГРУЗКЕ
 document.addEventListener('DOMContentLoaded', () => {
   CryptoLab.init();
 });
+class SecurityChecklist {
+  constructor() {
+    this.checkboxes = document.querySelectorAll('.checklist-checkbox');
+    this.progressSpan = document.getElementById('checklistProgress');
+    this.resetBtn = document.getElementById('checklistResetBtn');
+    this.storageKey = 'cryptographyLab_checklist';
 
+    if (this.checkboxes.length === 0) return;
+
+    this.init();
+  }
+
+  init() {
+    // Загружаем сохраненное состояние
+    this.loadState();
+
+    // Добавляем обработчики событий
+    this.addEventListeners();
+
+    // Обновляем прогресс
+    this.updateProgress();
+  }
+
+  loadState() {
+    try {
+      const savedState = localStorage.getItem(this.storageKey);
+
+      if (savedState) {
+        const states = JSON.parse(savedState);
+
+        this.checkboxes.forEach((checkbox, index) => {
+          if (states[index]) {
+            checkbox.checked = true;
+          }
+        });
+      }
+    } catch (e) {
+      console.error('Ошибка загрузки состояния чек-листа:', e);
+    }
+  }
+
+  saveState() {
+    const states = {};
+
+    this.checkboxes.forEach((checkbox, index) => {
+      states[index] = checkbox.checked;
+    });
+
+    localStorage.setItem(this.storageKey, JSON.stringify(states));
+  }
+
+  updateProgress() {
+    const checkedCount = Array.from(this.checkboxes).filter(
+      (cb) => cb.checked,
+    ).length;
+    const totalCount = this.checkboxes.length;
+
+    if (this.progressSpan) {
+      this.progressSpan.textContent = `${checkedCount}/${totalCount} выполнено`;
+
+      // Добавляем анимацию при достижении 100%
+      if (checkedCount === totalCount) {
+        this.progressSpan.style.color = '#10b981';
+        this.progressSpan.style.fontWeight = '700';
+        this.showAchievement('🎉 Отлично! Все пункты выполнены!');
+      } else {
+        this.progressSpan.style.color = 'rgba(255,255,255,0.7)';
+        this.progressSpan.style.fontWeight = '500';
+      }
+    }
+  }
+
+  showAchievement(message) {
+    // Создаем или обновляем уведомление о достижении
+    let achievement = document.querySelector('.checklist-achievement');
+
+    if (!achievement) {
+      achievement = document.createElement('div');
+      achievement.className = 'checklist-achievement';
+      achievement.style.cssText = `
+        margin-top: 15px;
+        padding: 10px 20px;
+        background: rgba(16, 185, 129, 0.2);
+        border: 1px solid #10b981;
+        border-radius: 30px;
+        color: white;
+        font-weight: 600;
+        text-align: center;
+        animation: fadeInUp 0.5s ease;
+      `;
+
+      const footer = document.querySelector('.checklist-footer');
+      if (footer) {
+        footer.parentNode.insertBefore(achievement, footer.nextSibling);
+      }
+    }
+
+    achievement.textContent = message;
+
+    // Автоматически скрываем через 3 секунды
+    setTimeout(() => {
+      if (achievement) {
+        achievement.style.animation = 'fadeOut 0.5s ease forwards';
+        setTimeout(() => achievement.remove(), 500);
+      }
+    }, 3000);
+  }
+
+  resetChecklist() {
+    this.checkboxes.forEach((checkbox) => {
+      checkbox.checked = false;
+    });
+
+    this.saveState();
+    this.updateProgress();
+
+    // Удаляем сообщение о достижении
+    const achievement = document.querySelector('.checklist-achievement');
+    if (achievement) {
+      achievement.remove();
+    }
+
+    // Показываем уведомление о сбросе
+    this.showNotification('Чек-лист сброшен', 'info');
+  }
+
+  showNotification(message, type = 'info') {
+    // Проверяем, существует ли функция showNotification
+    if (typeof window.showNotification === 'function') {
+      window.showNotification(message, type);
+    } else {
+      // Создаем временное уведомление
+      const notification = document.createElement('div');
+      notification.className = `custom-notification notification-${type}`;
+      notification.innerHTML = `
+        <div class="notification-content">
+          <i class="fas ${type === 'success' ? 'fa-check-circle' : 'fa-info-circle'}"></i>
+          <span>${message}</span>
+        </div>
+        <button class="notification-close" onclick="this.parentElement.remove()">
+          <i class="fas fa-times"></i>
+        </button>
+      `;
+
+      document.body.appendChild(notification);
+
+      setTimeout(() => {
+        notification.style.animation = 'slideOutRight 0.3s ease forwards';
+        setTimeout(() => notification.remove(), 300);
+      }, 3000);
+    }
+  }
+
+  addEventListeners() {
+    // Обработчики для чекбоксов
+    this.checkboxes.forEach((checkbox) => {
+      checkbox.addEventListener('change', () => {
+        this.saveState();
+        this.updateProgress();
+      });
+    });
+
+    // Обработчик для кнопки сброса
+    if (this.resetBtn) {
+      this.resetBtn.addEventListener('click', () => this.resetChecklist());
+    }
+
+    // Сохраняем состояние перед закрытием страницы
+    window.addEventListener('beforeunload', () => this.saveState());
+  }
+}
+
+// Добавляем CSS-анимацию для fadeOut
+const style = document.createElement('style');
+style.textContent = `
+  @keyframes fadeOut {
+    from { opacity: 1; transform: translateY(0); }
+    to { opacity: 0; transform: translateY(-20px); }
+  }
+  
+  .checklist-achievement {
+    transition: all 0.3s ease;
+  }
+  
+  .checklist-progress {
+    transition: color 0.3s ease, font-weight 0.3s ease;
+  }
+`;
+document.head.appendChild(style);
+
+// Инициализация после загрузки DOM
+document.addEventListener('DOMContentLoaded', () => {
+  window.securityChecklist = new SecurityChecklist();
+});
 //ДОБАВЛЕНИЕ CSS-АНИМАЦИЙ
 const animationStyles = `
     @keyframes fadeInUp {
