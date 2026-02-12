@@ -3,30 +3,40 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Образовательная платформа для изучения криптографии. Интерактивные алгоритмы шифрования, историческая справка и практические рекомендации.">
+  <meta name="keywords" content="криптография, шифрование, обучение, информационная безопасность, Цезарь, Виженер">
+
+  <!-- Preconnect для оптимизации -->
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
   <title>Cryptography Lab. | Образовательный портал для изучения криптографии</title>
+
+  <!-- Стили -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔒</text></svg>">
 </head>
-</section>
 <body>
 
+<!-- Индикатор прокрутки -->
 <div class="scroll-indicator" id="scrollIndicator">
   <div class="scroll-progress" id="scrollProgress"></div>
 </div>
 
-
+<!-- Шапка сайта -->
 <header class="header">
   <div class="container">
     <nav class="nav">
       <a href="#home" class="logo">
-        <i class="fas fa-lock"></i>
-        <span>Cryptography Lab.</span>
+        <i class="fas fa-lock" aria-hidden="true"></i>
+        <span>Cryptography Lab</span>
       </a>
 
-      <button class="nav-toggle" id="navToggle" aria-label="Меню">
-        <i class="fas fa-bars"></i>
+      <button class="nav-toggle" id="navToggle" aria-label="Открыть меню">
+        <i class="fas fa-bars" aria-hidden="true"></i>
       </button>
 
       <ul class="nav-menu" id="navMenu">
@@ -34,6 +44,7 @@
         <li class="nav-item"><a href="#history" class="nav-link">История</a></li>
         <li class="nav-item"><a href="#lab" class="nav-link">Лаборатория</a></li>
         <li class="nav-item"><a href="#ciphers" class="nav-link">Шифры</a></li>
+        <li class="nav-item"><a href="#recommendations" class="nav-link">Рекомендации</a></li>
         <li class="nav-item"><a href="#about" class="nav-link">О проекте</a></li>
         <li class="nav-item"><a href="#contact" class="nav-link">Контакты</a></li>
       </ul>
@@ -41,7 +52,7 @@
   </div>
 </header>
 
-
+<!-- Главная секция -->
 <section class="hero" id="home">
   <div class="container">
     <div class="hero-content">
@@ -50,11 +61,11 @@
       <p class="hero-description">Наш проект нацелен на изучение современных методов шифрования, на сайте представлены инструменты для практики в шифровке и дешифровке.</p>
       <div class="hero-actions">
         <a href="#lab" class="btn btn-primary">
-          <i class="fas fa-flask"></i>
+          <i class="fas fa-flask" aria-hidden="true"></i>
           Попробовать себя криптографом
         </a>
         <a href="#history" class="btn btn-secondary">
-          <i class="fas fa-history"></i>
+          <i class="fas fa-history" aria-hidden="true"></i>
           Историческая справка
         </a>
       </div>
@@ -81,24 +92,23 @@
   </div>
 </section>
 
-
+<!-- Историческая справка -->
 <section class="section history-section" id="history">
   <div class="container">
     <div class="section-header">
       <h2 class="section-title">
-        <i class="fas fa-history section-icon"></i>
+        <i class="fas fa-history section-icon" aria-hidden="true"></i>
         Историческая справка
       </h2>
       <p class="section-subtitle">От древних шифров до современных алгоритмов</p>
     </div>
 
     <div class="timeline">
-
       <div class="timeline-item">
         <div class="timeline-year">~500 г. до н.э.</div>
         <div class="timeline-content">
           <div class="timeline-icon">
-            <i class="fas fa-scroll"></i>
+            <i class="fas fa-scroll" aria-hidden="true"></i>
           </div>
           <h3>Шифр Скитала</h3>
           <p>Инструмент, используемый для перестановочного шифрования, в криптографии известный также как шифр Древней Спарты. Представляет собой цилиндр и узкую полоску пергамента, на которой писалось сообщение, обматывавшуюся вокруг него по спирали.</p>
@@ -110,7 +120,7 @@
         <div class="timeline-year">~50 г. до н.э.</div>
         <div class="timeline-content">
           <div class="timeline-icon">
-            <i class="fas fa-crown"></i>
+            <i class="fas fa-crown" aria-hidden="true"></i>
           </div>
           <h3>Шифр Цезаря</h3>
           <p>Гай Юлий Цезарь использовал простой шифр подстановки со сдвигом на 3 позиции для секретной переписки. Это один из древнейших известных шифров.</p>
@@ -118,12 +128,11 @@
         </div>
       </div>
 
-
       <div class="timeline-item">
         <div class="timeline-year">1467 г.</div>
         <div class="timeline-content">
           <div class="timeline-icon">
-            <i class="fas fa-code"></i>
+            <i class="fas fa-code" aria-hidden="true"></i>
           </div>
           <h3>Шифр Альберти</h3>
           <p>Первое в истории полиалфавитное шифровальное устройство, созданное Леоном Баттиста Альберти, которое состоит из двух концентрических дисков</p>
@@ -135,7 +144,7 @@
         <div class="timeline-year">1586 г.</div>
         <div class="timeline-content">
           <div class="timeline-icon">
-            <i class="fas fa-user-secret"></i>
+            <i class="fas fa-user-secret" aria-hidden="true"></i>
           </div>
           <h3>Шифр Виженера</h3>
           <p>Блез де Виженер усовершенствовал полиалфавитные шифры, создав шифр, который считался невзламываемым на протяжении 300 лет.</p>
@@ -147,7 +156,7 @@
         <div class="timeline-year">1918 г.</div>
         <div class="timeline-content">
           <div class="timeline-icon">
-            <i class="fas fa-cogs"></i>
+            <i class="fas fa-cogs" aria-hidden="true"></i>
           </div>
           <h3>Машина Энигма</h3>
           <p>Немецкий инженер Артур Шербиус создал переносную, электромеханическую роторную машину для шифрования, широко использовавшуюся во время Второй мировой войны.</p>
@@ -159,7 +168,7 @@
         <div class="timeline-year">1977 г.</div>
         <div class="timeline-content">
           <div class="timeline-icon">
-            <i class="fas fa-laptop"></i>
+            <i class="fas fa-laptop" aria-hidden="true"></i>
           </div>
           <h3>Стандарт DES</h3>
           <p>Алгоритм для симметричного шифрования, разработанный фирмой IBM и утверждённый правительством США в 1977 году как официальный стандарт.</p>
@@ -167,12 +176,11 @@
         </div>
       </div>
 
-
       <div class="timeline-item">
         <div class="timeline-year">2001 г.</div>
         <div class="timeline-content">
           <div class="timeline-icon">
-            <i class="fas fa-shield-alt"></i>
+            <i class="fas fa-shield-alt" aria-hidden="true"></i>
           </div>
           <h3>Стандарт AES</h3>
           <p>Принят новый стандарт шифрования AES (Advanced Encryption Standard), используемый до сих пор для защиты государственной и коммерческой информации.</p>
@@ -184,10 +192,10 @@
         <div class="timeline-year">Наше время</div>
         <div class="timeline-content">
           <div class="timeline-icon">
-            <i class="fas fa-atom"></i>
+            <i class="fas fa-atom" aria-hidden="true"></i>
           </div>
           <h3>Квантовая криптография</h3>
-          <p> Метод защиты коммуникаций, основанный на принципах квантовой физики.</p>
+          <p>Метод защиты коммуникаций, основанный на принципах квантовой физики.</p>
           <div class="timeline-tag">Будущее</div>
         </div>
       </div>
@@ -195,21 +203,21 @@
   </div>
 </section>
 
+<!-- Криптографическая лаборатория -->
 <section class="section lab-section" id="lab">
   <div class="container">
     <div class="section-header">
       <h2 class="section-title">
-        <i class="fas fa-flask section-icon"></i>
+        <i class="fas fa-flask section-icon" aria-hidden="true"></i>
         Криптографическая лаборатория
       </h2>
       <p class="section-subtitle">Экспериментируйте с алгоритмами шифрования в реальном времени</p>
     </div>
 
     <div class="lab-grid">
-
       <div class="lab-panel input-panel">
         <div class="panel-header">
-          <h3><i class="fas fa-keyboard"></i> Исходный текст</h3>
+          <h3><i class="fas fa-keyboard" aria-hidden="true"></i> Исходный текст</h3>
           <div class="text-counter">
             <span id="charCount">0</span> символов
           </div>
@@ -226,7 +234,7 @@
           <div class="algorithm-selector">
             <div class="selector-group">
               <label for="algorithmSelect">
-                <i class="fas fa-code-branch"></i>
+                <i class="fas fa-code-branch" aria-hidden="true"></i>
                 Алгоритм шифрования
               </label>
               <select id="algorithmSelect" class="algorithm-select">
@@ -240,7 +248,7 @@
 
             <div class="selector-group">
               <label for="keyInput">
-                <i class="fas fa-key"></i>
+                <i class="fas fa-key" aria-hidden="true"></i>
                 Ключ шифрования
               </label>
               <div class="key-input-wrapper">
@@ -253,39 +261,35 @@
                   aria-label="Ключ шифрования"
                 >
                 <button class="key-generate" id="keyGenerate" aria-label="Сгенерировать ключ">
-                  <i class="fas fa-random"></i>
+                  <i class="fas fa-random" aria-hidden="true"></i>
                 </button>
               </div>
             </div>
           </div>
 
           <div class="action-buttons">
-            <button id="encryptBtn" class="btn btn-success">
-              <i class="fas fa-lock"></i>
+            <button id="encryptBtn" class="btn btn-success" aria-label="Зашифровать текст">
+              <i class="fas fa-lock" aria-hidden="true"></i>
               Зашифровать
             </button>
-            <button id="decryptBtn" class="btn btn-warning">
-              <i class="fas fa-unlock"></i>
+            <button id="decryptBtn" class="btn btn-warning" aria-label="Расшифровать текст">
+              <i class="fas fa-unlock" aria-hidden="true"></i>
               Расшифровать
             </button>
-            <button id="clearBtn" class="btn btn-secondary">
-              <i class="fas fa-broom"></i>
+            <button id="clearBtn" class="btn btn-secondary" aria-label="Очистить поля">
+              <i class="fas fa-broom" aria-hidden="true"></i>
               Очистить
             </button>
           </div>
         </div>
       </div>
 
-
       <div class="lab-panel output-panel">
         <div class="panel-header">
-          <h3><i class="fas fa-file-code"></i> Результат</h3>
+          <h3><i class="fas fa-file-code" aria-hidden="true"></i> Результат</h3>
           <div class="output-actions">
             <button id="copyBtn" class="btn-icon" aria-label="Копировать результат">
-              <i class="fas fa-copy"></i>
-            </button>
-            <button id="downloadBtn" class="btn-icon" aria-label="Скачать результат">
-              <i class="fas fa-download"></i>
+              <i class="fas fa-copy" aria-hidden="true"></i>
             </button>
           </div>
         </div>
@@ -300,7 +304,7 @@
           ></textarea>
 
           <div class="algorithm-info">
-            <h4><i class="fas fa-info-circle"></i> Об алгоритме</h4>
+            <h4><i class="fas fa-info-circle" aria-hidden="true"></i> Об алгоритме</h4>
             <p id="algorithmInfo">
               Шифр Цезаря, также известный как шифр сдвига или код Цезаря — разновидность шифра подстановки, в котором каждый символ в открытом тексте заменяется символом, находящимся на некотором постоянном числе позиций левее или правее него в алфавите.
             </p>
@@ -309,10 +313,9 @@
       </div>
     </div>
 
-
     <div class="examples">
       <h3 class="examples-title">
-        <i class="fas fa-lightbulb"></i>
+        <i class="fas fa-lightbulb" aria-hidden="true"></i>
         Быстрые примеры
       </h3>
       <div class="examples-grid">
@@ -333,200 +336,346 @@
   </div>
 </section>
 
-<section class="section ciphers-section" id="ciphers">
+
+<!-- Практические рекомендации по защите информации -->
+<section class="section recommendations-section" id="recommendations">
   <div class="container">
     <div class="section-header">
       <h2 class="section-title">
-        <i class="fas fa-shield-alt section-icon"></i>
-        Современные виды шифров
+        <i class="fas fa-shield-hacked section-icon" aria-hidden="true"></i>
+        Практические рекомендации по защите информации
       </h2>
-      <p class="section-subtitle">Изучите основные криптографические алгоритмы и их применение</p>
+      <p class="section-subtitle">Как применять криптографию в повседневной жизни и защитить свои данные</p>
     </div>
 
-
-    <div class="carousel-container">
-      <div class="carousel" id="carousel">
-        <div class="carousel-track" id="carouselTrack">
-
-          <div class="carousel-slide active" data-index="0">
-            <div class="slide-content">
-              <div class="slide-icon">
-                <i class="fas fa-exchange-alt"></i>
-              </div>
-              <h3 class="slide-title">Симметричное шифрование</h3>
-              <p class="slide-description">
-                Это метод защиты данных, использующий один и тот же секретный ключ как для шифрования, так и для расшифровки информации.
-              </p>
-              <div class="slide-features">
-                <div class="feature">
-                  <i class="fas fa-bolt"></i>
-                  <span>Высокая скорость</span>
-                </div>
-                <div class="feature">
-                  <i class="fas fa-key"></i>
-                  <span>Один ключ</span>
-                </div>
-                <div class="feature">
-                  <i class="fas fa-tachometer-alt"></i>
-                  <span>Эффективно для больших данных</span>
-                </div>
-              </div>
-              <ul class="slide-list">
-                <li><strong>AES</strong> - современный стандарт шифрования</li>
-                <li><strong>DES/3DES</strong> - исторически важные алгоритмы</li>
-                <li><strong>ChaCha20</strong> - быстрый потоковый шифр</li>
-                <li><strong>Blowfish</strong> - гибкий блочный шифр</li>
-              </ul>
-            </div>
-          </div>
-
-
-          <div class="carousel-slide" data-index="1">
-            <div class="slide-content">
-              <div class="slide-icon">
-                <i class="fas fa-key"></i>
-              </div>
-              <h3 class="slide-title">Асимметричное шифрование</h3>
-              <p class="slide-description">
-                Cистема шифрования при которой открытый ключ передаётся по открытому каналу
-              </p>
-              <div class="slide-features">
-                <div class="feature">
-                  <i class="fas fa-lock-open"></i>
-                  <span>Публичный ключ</span>
-                </div>
-                <div class="feature">
-                  <i class="fas fa-lock"></i>
-                  <span>Приватный ключ</span>
-                </div>
-                <div class="feature">
-                  <i class="fas fa-user-shield"></i>
-                  <span>Безопасный обмен</span>
-                </div>
-              </div>
-              <ul class="slide-list">
-                <li><strong>RSA</strong> - первый алгоритм с открытым ключом</li>
-                <li><strong>ECC</strong> - безопасность с меньшими ключами</li>
-                <li><strong>ElGamal</strong> - на основе дискретного логарифма</li>
-                <li><strong>DSA</strong> - для цифровых подписей</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="carousel-slide" data-index="2">
-            <div class="slide-content">
-              <div class="slide-icon">
-                <i class="fas fa-fingerprint"></i>
-              </div>
-              <h3 class="slide-title">Хеш-функции</h3>
-              <p class="slide-description">
-                Функция, преобразующая массив входных данных произвольного размера в выходную битовую строку определённого размера в соответствии с определённым алгоритмом.
-              </p>
-              <div class="slide-features">
-                <div class="feature">
-                  <i class="fas fa-compress-arrows-alt"></i>
-                  <span>Фиксированный размер</span>
-                </div>
-                <div class="feature">
-                  <i class="fas fa-undo-alt"></i>
-                  <span>Необратимость</span>
-                </div>
-                <div class="feature">
-                  <i class="fas fa-check-double"></i>
-                  <span>Проверка целостности</span>
-                </div>
-              </div>
-              <ul class="slide-list">
-                <li><strong>SHA-256</strong> - используется в Bitcoin</li>
-                <li><strong>SHA-3</strong> - новейший стандарт</li>
-                <li><strong>Bcrypt</strong> - для хранения паролей</li>
-                <li><strong>MD5</strong> - устаревший, но исторический</li>
-              </ul>
-            </div>
-          </div>
-
-
-          <div class="carousel-slide" data-index="3">
-            <div class="slide-content">
-              <div class="slide-icon">
-                <i class="fas fa-atom"></i>
-              </div>
-              <h3 class="slide-title">Квантовая криптография</h3>
-              <p class="slide-description">
-                Метод защиты данных, основанный на законах квантовой механики, обеспечивающий безусловную безопасность передачи информации за счет физических свойств частиц Обнаруживает любое подслушивание на физическом уровне.
-              </p>
-              <div class="slide-features">
-                <div class="feature">
-                  <i class="fas fa-eye-slash"></i>
-                  <span>Обнаружение подслушивания</span>
-                </div>
-                <div class="feature">
-                  <i class="fas fa-satellite-dish"></i>
-                  <span>Квантовые состояния</span>
-                </div>
-                <div class="feature">
-                  <i class="fas fa-future"></i>
-                  <span>Защита от квантовых компьютеров</span>
-                </div>
-              </div>
-              <ul class="slide-list">
-                <li><strong>BB84</strong> - первый квантовый протокол</li>
-                <li><strong>E91</strong> - использует квантовую запутанность</li>
-                <li><strong>Квантовые сети</strong> - будущее связи</li>
-                <li><strong>Постквантовые алгоритмы</strong> - разработки для защиты</li>
-              </ul>
-            </div>
-          </div>
+    <!-- Карточки с рекомендациями -->
+    <div class="recommendations-grid">
+      <!-- Карточка 1: Пароли -->
+      <div class="recommendation-card">
+        <div class="card-corner"></div>
+        <div class="card-icon-wrapper">
+          <div class="card-icon-bg"></div>
+          <i class="fas fa-lock" aria-hidden="true"></i>
         </div>
-
-
-        <div class="carousel-nav">
-          <button class="carousel-btn prev" id="prevBtn" aria-label="Предыдущий слайд">
-            <i class="fas fa-chevron-left"></i>
-          </button>
-
-          <div class="carousel-indicators" id="carouselIndicators">
-            <button class="indicator active" data-index="0" aria-label="Перейти к слайду 1"></button>
-            <button class="indicator" data-index="1" aria-label="Перейти к слайду 2"></button>
-            <button class="indicator" data-index="2" aria-label="Перейти к слайду 3"></button>
-            <button class="indicator" data-index="3" aria-label="Перейти к слайду 4"></button>
-          </div>
-
-          <button class="carousel-btn next" id="nextBtn" aria-label="Следующий слайд">
-            <i class="fas fa-chevron-right"></i>
-          </button>
+        <h3 class="card-title">Надёжные пароли</h3>
+        <div class="card-tags">
+          <span class="tag">базовый уровень</span>
+          <span class="tag">критично</span>
         </div>
+        <ul class="card-list">
+          <li><i class="fas fa-check-circle" aria-hidden="true"></i> Используйте пароли длиной <strong>от 12 символов</strong></li>
+          <li><i class="fas fa-check-circle" aria-hidden="true"></i> Комбинируйте буквы разного регистра, цифры и спецсимволы</li>
+          <li><i class="fas fa-check-circle" aria-hidden="true"></i> Никогда не используйте один пароль для разных сервисов</li>
+          <li><i class="fas fa-check-circle" aria-hidden="true"></i> Смените пароли, если есть подозрение на утечку</li>
+        </ul>
+        <div class="card-tip">
+          <i class="fas fa-lightbulb" aria-hidden="true"></i>
+          <span><strong>Совет:</strong> Используйте менеджеры паролей (Bitwarden, 1Password, KeePass)</span>
+        </div>
+      </div>
 
-        <div class="carousel-counter">
-          <span id="currentSlide">1</span> / <span id="totalSlides">4</span>
+      <!-- Карточка 2: Двухфакторная аутентификация -->
+      <div class="recommendation-card">
+        <div class="card-corner"></div>
+        <div class="card-icon-wrapper">
+          <div class="card-icon-bg"></div>
+          <i class="fas fa-mobile-alt" aria-hidden="true"></i>
+        </div>
+        <h3 class="card-title">Двухфакторная аутентификация (2FA)</h3>
+        <div class="card-tags">
+          <span class="tag">средний уровень</span>
+          <span class="tag">рекомендуется</span>
+        </div>
+        <ul class="card-list">
+          <li><i class="fas fa-check-circle" aria-hidden="true"></i> Включите 2FA везде, где это возможно</li>
+          <li><i class="fas fa-check-circle" aria-hidden="true"></i> Используйте приложения-аутентификаторы (Google Authenticator, Authy)</li>
+          <li><i class="fas fa-check-circle" aria-hidden="true"></i> Избегайте SMS-подтверждения, если есть альтернатива</li>
+          <li><i class="fas fa-check-circle" aria-hidden="true"></i> Сохраните резервные коды в надёжном месте</li>
+        </ul>
+        <div class="card-tip">
+          <i class="fas fa-lightbulb" aria-hidden="true"></i>
+          <span><strong>Совет:</strong> Настройте биометрию (Face ID/Touch ID) для быстрого доступа</span>
+        </div>
+      </div>
+
+      <!-- Карточка 3: Шифрование устройств -->
+      <div class="recommendation-card">
+        <div class="card-corner"></div>
+        <div class="card-icon-wrapper">
+          <div class="card-icon-bg"></div>
+          <i class="fas fa-laptop" aria-hidden="true"></i>
+        </div>
+        <h3 class="card-title">Шифрование устройств</h3>
+        <div class="card-tags">
+          <span class="tag">продвинутый</span>
+          <span class="tag">максимальная защита</span>
+        </div>
+        <ul class="card-list">
+          <li><i class="fas fa-check-circle" aria-hidden="true"></i> Включите BitLocker (Windows) или FileVault (Mac)</li>
+          <li><i class="fas fa-check-circle" aria-hidden="true"></i> Шифруйте смартфоны (встроено в iOS/Android)</li>
+          <li><i class="fas fa-check-circle" aria-hidden="true"></i> Используйте VeraCrypt для внешних носителей</li>
+          <li><i class="fas fa-check-circle" aria-hidden="true"></i> Шифруйте резервные копии данных</li>
+        </ul>
+        <div class="card-tip">
+          <i class="fas fa-lightbulb" aria-hidden="true"></i>
+          <span><strong>Совет:</strong> Полное шифрование диска защитит данные при потере устройства</span>
+        </div>
+      </div>
+
+      <!-- Карточка 4: Мессенджеры -->
+      <div class="recommendation-card">
+        <div class="card-corner"></div>
+        <div class="card-icon-wrapper">
+          <div class="card-icon-bg"></div>
+          <i class="fas fa-comments" aria-hidden="true"></i>
+        </div>
+        <h3 class="card-title">Безопасные мессенджеры</h3>
+        <div class="card-tags">
+          <span class="tag">средний уровень</span>
+          <span class="tag">сквозное шифрование</span>
+        </div>
+        <ul class="card-list">
+          <li><i class="fas fa-check-circle" aria-hidden="true"></i> Используйте Signal, Telegram (Secret Chat)</li>
+          <li><i class="fas fa-check-circle" aria-hidden="true"></i> Проверяйте ключи шифрования с собеседником</li>
+          <li><i class="fas fa-check-circle" aria-hidden="true"></i> Включайте исчезающие сообщения для конфиденциальных данных</li>
+          <li><i class="fas fa-check-circle" aria-hidden="true"></i> Не отправляйте пароли и документы в обычных чатах</li>
+        </ul>
+        <div class="card-tip">
+          <i class="fas fa-lightbulb" aria-hidden="true"></i>
+          <span><strong>Совет:</strong> Signal считается золотым стандартом безопасной коммуникации</span>
+        </div>
+      </div>
+
+      <!-- Карточка 5: Электронная почта -->
+      <div class="recommendation-card">
+        <div class="card-corner"></div>
+        <div class="card-icon-wrapper">
+          <div class="card-icon-bg"></div>
+          <i class="fas fa-envelope" aria-hidden="true"></i>
+        </div>
+        <h3 class="card-title">Защита email</h3>
+        <div class="card-tags">
+          <span class="tag">базовый уровень</span>
+          <span class="tag">важно</span>
+        </div>
+        <ul class="card-list">
+          <li><i class="fas fa-check-circle" aria-hidden="true"></i> Используйте ProtonMail или Tutanota для конфиденциальной переписки</li>
+          <li><i class="fas fa-check-circle" aria-hidden="true"></i> Настройте PGP шифрование для важных писем</li>
+          <li><i class="fas fa-check-circle" aria-hidden="true"></i> Не открывайте подозрительные вложения</li>
+          <li><i class="fas fa-check-circle" aria-hidden="true"></i> Проверяйте адрес отправителя в письмах</li>
+        </ul>
+        <div class="card-tip">
+          <i class="fas fa-lightbulb" aria-hidden="true"></i>
+          <span><strong>Совет:</strong> Mailvelope — расширение для PGP шифрования в браузере</span>
+        </div>
+      </div>
+
+      <!-- Карточка 6: Облачные хранилища -->
+      <div class="recommendation-card">
+        <div class="card-corner"></div>
+        <div class="card-icon-wrapper">
+          <div class="card-icon-bg"></div>
+          <i class="fas fa-cloud" aria-hidden="true"></i>
+        </div>
+        <h3 class="card-title">Безопасность в облаке</h3>
+        <div class="card-tags">
+          <span class="tag">средний уровень</span>
+          <span class="tag">zero-knowledge</span>
+        </div>
+        <ul class="card-list">
+          <li><i class="fas fa-check-circle" aria-hidden="true"></i> Используйте Cryptomator для шифрования файлов перед загрузкой</li>
+          <li><i class="fas fa-check-circle" aria-hidden="true"></i> Выбирайте провайдеров с zero-knowledge архитектурой</li>
+          <li><i class="fas fa-check-circle" aria-hidden="true"></i> Настройте 2FA для доступа к облаку</li>
+          <li><i class="fas fa-check-circle" aria-hidden="true"></i> Проверяйте настройки приватности</li>
+        </ul>
+        <div class="card-tip">
+          <i class="fas fa-lightbulb" aria-hidden="true"></i>
+          <span><strong>Совет:</strong> Tresorit и Sync.com — безопасные альтернативы Google Drive</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Таблица сравнения инструментов -->
+    <div class="comparison-section">
+      <h3 class="comparison-title">
+        <i class="fas fa-chart-bar" aria-hidden="true"></i>
+        Сравнение инструментов шифрования
+      </h3>
+
+      <div class="table-responsive">
+        <table class="comparison-table">
+          <thead>
+          <tr>
+            <th>Инструмент</th>
+            <th>Тип</th>
+            <th>Платформы</th>
+            <th>Уровень защиты</th>
+            <th>Сложность</th>
+            <th>Рекомендация</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td><i class="fas fa-lock" aria-hidden="true"></i> VeraCrypt</td>
+            <td>Шифрование дисков</td>
+            <td>Win, Mac, Linux</td>
+            <td><span class="level high">Высокий</span></td>
+            <td><span class="complexity medium">Средняя</span></td>
+            <td><span class="badge recommended">Рекомендуется</span></td>
+          </tr>
+          <tr>
+            <td><i class="fas fa-lock" aria-hidden="true"></i> BitLocker</td>
+            <td>Шифрование дисков</td>
+            <td>Windows</td>
+            <td><span class="level high">Высокий</span></td>
+            <td><span class="complexity easy">Низкая</span></td>
+            <td><span class="badge recommended">Рекомендуется</span></td>
+          </tr>
+          <tr>
+            <td><i class="fas fa-envelope" aria-hidden="true"></i> ProtonMail</td>
+            <td>Защищённая почта</td>
+            <td>Web, iOS, Android</td>
+            <td><span class="level high">Высокий</span></td>
+            <td><span class="complexity easy">Низкая</span></td>
+            <td><span class="badge recommended">Рекомендуется</span></td>
+          </tr>
+          <tr>
+            <td><i class="fas fa-comments" aria-hidden="true"></i> Signal</td>
+            <td>Мессенджер</td>
+            <td>Все платформы</td>
+            <td><span class="level high">Высокий</span></td>
+            <td><span class="complexity easy">Низкая</span></td>
+            <td><span class="badge best">Лучший выбор</span></td>
+          </tr>
+          <tr>
+            <td><i class="fas fa-cloud" aria-hidden="true"></i> Cryptomator</td>
+            <td>Шифрование облака</td>
+            <td>Все платформы</td>
+            <td><span class="level high">Высокий</span></td>
+            <td><span class="complexity medium">Средняя</span></td>
+            <td><span class="badge recommended">Рекомендуется</span></td>
+          </tr>
+          <tr>
+            <td><i class="fas fa-key" aria-hidden="true"></i> Bitwarden</td>
+            <td>Менеджер паролей</td>
+            <td>Все платформы</td>
+            <td><span class="level high">Высокий</span></td>
+            <td><span class="complexity easy">Низкая</span></td>
+            <td><span class="badge best">Лучший выбор</span></td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Блок с чек-листом -->
+    <div class="checklist-section">
+      <div class="checklist-header">
+        <i class="fas fa-clipboard-check" aria-hidden="true"></i>
+        <h3>Чек-лист вашей безопасности</h3>
+      </div>
+      <div class="checklist-grid">
+        <div class="checklist-item">
+          <label class="checkbox-container">
+            <input type="checkbox" aria-label="Обновлены пароли в менеджере">
+            <span class="checkmark"></span>
+            <span class="check-text">Обновлены пароли в менеджере</span>
+          </label>
+        </div>
+        <div class="checklist-item">
+          <label class="checkbox-container">
+            <input type="checkbox" aria-label="Проверены подозрительные входы в аккаунты">
+            <span class="checkmark"></span>
+            <span class="check-text">Проверены подозрительные входы в аккаунты</span>
+          </label>
+        </div>
+        <div class="checklist-item">
+          <label class="checkbox-container">
+            <input type="checkbox" aria-label="Обновлена ОС и приложения">
+            <span class="checkmark"></span>
+            <span class="check-text">Обновлена ОС и приложения</span>
+          </label>
+        </div>
+        <div class="checklist-item">
+          <label class="checkbox-container">
+            <input type="checkbox" aria-label="Сделана резервная копия важных данных">
+            <span class="checkmark"></span>
+            <span class="check-text">Сделана резервная копия важных данных</span>
+          </label>
+        </div>
+        <div class="checklist-item">
+          <label class="checkbox-container">
+            <input type="checkbox" aria-label="Проверены настройки приватности в соцсетях">
+            <span class="checkmark"></span>
+            <span class="check-text">Проверены настройки приватности в соцсетях</span>
+          </label>
+        </div>
+        <div class="checklist-item">
+          <label class="checkbox-container">
+            <input type="checkbox" aria-label="Включён VPN при работе в публичных сетях">
+            <span class="checkmark"></span>
+            <span class="check-text">Включён VPN при работе в публичных сетях</span>
+          </label>
+        </div>
+      </div>
+      <div class="checklist-footer">
+        <button class="btn btn-primary" id="checklistResetBtn" aria-label="Сбросить чек-лист">
+          <i class="fas fa-undo" aria-hidden="true"></i> Сбросить
+        </button>
+        <span class="checklist-progress" id="checklistProgress">0/6 выполнено</span>
+      </div>
+    </div>
+
+    <!-- Итоговый призыв к действию -->
+    <div class="recommendations-cta">
+      <div class="cta-content">
+        <h4>Начните защищать свои данные прямо сейчас</h4>
+        <p>80% взломов происходит из-за слабых паролей и отсутствия двухфакторной аутентификации</p>
+        <div class="cta-steps">
+          <div class="step">
+            <div class="step-number">1</div>
+            <span>Установите менеджер паролей</span>
+          </div>
+          <div class="step">
+            <div class="step-number">2</div>
+            <span>Включите 2FA на всех сервисах</span>
+          </div>
+          <div class="step">
+            <div class="step-number">3</div>
+            <span>Настройте шифрование устройств</span>
+          </div>
+          <div class="step">
+            <div class="step-number">4</div>
+            <span>Перейдите на безопасные мессенджеры</span>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-
+<!-- О проекте -->
 <section class="section about-section" id="about">
   <div class="container">
     <div class="section-header">
       <h2 class="section-title">
-        <i class="fas fa-rocket section-icon"></i>
+        <i class="fas fa-rocket section-icon" aria-hidden="true"></i>
         О проекте Cryptography Lab.
       </h2>
-      <p class="section-subtitle">Идея проекта-сделать криптографию понятной для всех!</p>
+      <p class="section-subtitle">Идея проекта — сделать криптографию понятной для всех!</p>
     </div>
 
     <div class="about-content">
       <div class="about-text">
         <div class="mission-card">
-          <h3><i class="fas fa-bullseye"></i> Наша идея</h3>
-          <p>Cryptography Lab. создан как интерактивная образовательная платформа для изучения криптографии. Нашей команде кажется, что понимание принципов шифрования-важный навык в современном мире.</p>
+          <h3><i class="fas fa-bullseye" aria-hidden="true"></i> Наша идея</h3>
+          <p>Cryptography Lab. создан как интерактивная образовательная платформа для изучения криптографии. Нашей команде кажется, что понимание принципов шифрования — важный навык в современном мире.</p>
         </div>
 
         <div class="features-grid">
           <div class="feature-card">
             <div class="feature-icon">
-              <i class="fas fa-graduation-cap"></i>
+              <i class="fas fa-graduation-cap" aria-hidden="true"></i>
             </div>
             <h4>Образовательный подход</h4>
             <p>Сочетание теории с практикой для лучшего усвоения и понимания материала.</p>
@@ -534,7 +683,7 @@
 
           <div class="feature-card">
             <div class="feature-icon">
-              <i class="fas fa-hand-pointer"></i>
+              <i class="fas fa-hand-pointer" aria-hidden="true"></i>
             </div>
             <h4>Интерактивность</h4>
             <p>Работающие алгоритмы шифрования для их проверки в реальном времени.</p>
@@ -542,7 +691,7 @@
 
           <div class="feature-card">
             <div class="feature-icon">
-              <i class="fas fa-users"></i>
+              <i class="fas fa-users" aria-hidden="true"></i>
             </div>
             <h4>Для всех уровней</h4>
             <p>Наш проект будет интересен всем, от школьников до научных сотрудников.</p>
@@ -550,10 +699,10 @@
 
           <div class="feature-card">
             <div class="feature-icon">
-              <i class="fas fa-code"></i>
+              <i class="fas fa-code" aria-hidden="true"></i>
             </div>
             <h4>Открытый код</h4>
-            <p>Все алгоритмы реализованы на JavaScript и доступны для просмотра и изучения на GitHub</p>
+            <p>Все алгоритмы реализованы на JavaScript и доступны для просмотра и изучения на GitHub.</p>
           </div>
         </div>
       </div>
@@ -561,20 +710,20 @@
       <div class="about-visual">
         <div class="visual-container">
           <div class="floating-card card-1">
-            <i class="fas fa-lock"></i>
+            <i class="fas fa-lock" aria-hidden="true"></i>
             <span>Безопасность</span>
           </div>
           <div class="floating-card card-2">
-            <i class="fas fa-brain"></i>
+            <i class="fas fa-brain" aria-hidden="true"></i>
             <span>Обучение</span>
           </div>
           <div class="floating-card card-3">
-            <i class="fas fa-cogs"></i>
+            <i class="fas fa-cogs" aria-hidden="true"></i>
             <span>Технологии</span>
           </div>
           <div class="main-visual">
             <div class="visual-inner">
-              <i class="fas fa-laptop-code"></i>
+              <i class="fas fa-laptop-code" aria-hidden="true"></i>
             </div>
           </div>
         </div>
@@ -587,7 +736,7 @@
         <p>Присоединяйтесь к десяткам студентов и школьников, изучающих криптографию с Cryptography Lab.</p>
         <div class="cta-buttons">
           <a href="#lab" class="btn btn-primary btn-lg">
-            <i class="fas fa-play"></i>
+            <i class="fas fa-play" aria-hidden="true"></i>
             Начать сейчас
           </a>
         </div>
@@ -595,13 +744,14 @@
     </div>
   </div>
 </section>
+
 <!-- Секция лайков -->
 <section class="like-section">
   <div class="container">
     <div class="like-card">
       <div class="like-content">
         <div class="like-icon-wrapper">
-          <i class="fas fa-heart like-icon" id="likeIcon"></i>
+          <i class="fas fa-heart like-icon" id="likeIcon" aria-hidden="true"></i>
           <div class="like-particle-container" id="particleContainer"></div>
         </div>
         <div class="like-info">
@@ -609,10 +759,10 @@
           <p class="like-description">Поддержите нас лайком! Это мотивирует создавать больше образовательного контента.</p>
         </div>
         <div class="like-stats">
-          <button class="like-button" id="likeButton">
-                            <span class="like-button-icon">
-                                <i class="fas fa-heart"></i>
-                            </span>
+          <button class="like-button" id="likeButton" aria-label="Поставить лайк">
+            <span class="like-button-icon">
+              <i class="fas fa-heart" aria-hidden="true"></i>
+            </span>
             <span class="like-button-text" id="likeButtonText">Нравится</span>
             <span class="like-count" id="likeCount">0</span>
           </button>
@@ -623,12 +773,14 @@
     </div>
   </div>
 </section>
+
+<!-- Подвал -->
 <footer class="footer" id="contact">
   <div class="container">
     <div class="footer-content">
       <div class="footer-brand">
         <a href="#home" class="footer-logo">
-          <i class="fas fa-lock"></i>
+          <i class="fas fa-lock" aria-hidden="true"></i>
           <span>Cryptography Lab.</span>
         </a>
         <p class="footer-description">
@@ -636,7 +788,7 @@
         </p>
         <div class="social-links">
           <a href="https://github.com/h1zz-Huzler" class="social-link" aria-label="GitHub">
-            <i class="fab fa-github"></i>
+            <i class="fab fa-github" aria-hidden="true"></i>
           </a>
         </div>
       </div>
@@ -644,11 +796,11 @@
       <div class="footer-links">
         <h4>Навигация</h4>
         <ul>
-          <li><a href="#home"><i class="fas fa-chevron-right"></i> Главная</a></li>
-          <li><a href="#history"><i class="fas fa-chevron-right"></i> История</a></li>
-          <li><a href="#lab"><i class="fas fa-chevron-right"></i> Лаборатория</a></li>
-          <li><a href="#ciphers"><i class="fas fa-chevron-right"></i> Шифры</a></li>
-          <li><a href="#about"><i class="fas fa-chevron-right"></i> О проекте</a></li>
+          <li><a href="#home"><i class="fas fa-chevron-right" aria-hidden="true"></i> Главная</a></li>
+          <li><a href="#history"><i class="fas fa-chevron-right" aria-hidden="true"></i> История</a></li>
+          <li><a href="#lab"><i class="fas fa-chevron-right" aria-hidden="true"></i> Лаборатория</a></li>
+          <li><a href="#ciphers"><i class="fas fa-chevron-right" aria-hidden="true"></i> Шифры</a></li>
+          <li><a href="#about"><i class="fas fa-chevron-right" aria-hidden="true"></i> О проекте</a></li>
         </ul>
       </div>
 
@@ -656,16 +808,17 @@
         <h4>Контакты</h4>
         <ul>
           <li>
-            <i class="fas fa-envelope"></i>
-            <a href="pavelrog315@gmail.com">pavelrog315@gmail.com</a>
+            <i class="fas fa-envelope" aria-hidden="true"></i>
+            <a href="mailto:pavelrog315@gmail.com">pavelrog315@gmail.com</a>
           </li>
           <li>
-            <i class="fas fa-map-marker-alt"></i>
+            <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
             <span>Ростов-на-Дону, Россия</span>
           </li>
         </ul>
       </div>
     </div>
+
     <div class="footer-bottom">
       <div class="copyright">
         &copy; 2026 Cryptography Lab. Все права защищены.
@@ -679,11 +832,10 @@
   </div>
 </footer>
 
-
+<!-- Кнопка "Наверх" -->
 <button class="scroll-top" id="scrollTop" aria-label="Наверх">
-  <i class="fas fa-arrow-up"></i>
+  <i class="fas fa-arrow-up" aria-hidden="true"></i>
 </button>
-
 
 <script src="script.js"></script>
 </body>
