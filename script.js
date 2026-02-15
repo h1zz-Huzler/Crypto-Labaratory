@@ -1,10 +1,3 @@
-/**
- * CryptoLab - Образовательный портал по криптографии
- * Полная версия JavaScript файла
- * Версия: 3.5
- * Дата: 2026
- */
-
 
 const CryptoLab = {
 
@@ -24,14 +17,12 @@ const CryptoLab = {
     this.setupLikeSystem();
     this.setupChecklist();
 
-    // Инициализация информации об алгоритмах
     this.updateAlgorithmInfo();
 
     console.log('всё ок');
   },
 
   setupEventListeners() {
-    // Лаборатория
     const encryptBtn = document.getElementById('encryptBtn');
     const decryptBtn = document.getElementById('decryptBtn');
     const clearBtn = document.getElementById('clearBtn');
@@ -55,8 +46,7 @@ const CryptoLab = {
         this.updateAlgorithmInfo(),
       );
   },
-
-  //НАВИГАЦИЯ
+  
   setupNavigation() {
     const navToggle = document.getElementById('navToggle');
     const navMenu = document.getElementById('navMenu');
@@ -113,7 +103,6 @@ const CryptoLab = {
     });
   },
 
-  //ПЛАВНЫЙ СКРОЛЛ
   setupSmoothScroll() {
     document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
       anchor.addEventListener('click', function (e) {
@@ -140,7 +129,6 @@ const CryptoLab = {
     });
   },
 
-  // ИНДИКАТОР ПРОКРУТКИ
   setupScrollIndicator() {
     const scrollProgress = document.getElementById('scrollProgress');
     if (!scrollProgress) return;
@@ -161,7 +149,6 @@ const CryptoLab = {
     });
   },
 
-  // КНОПКА "НАВЕРХ"
   setupScrollToTop() {
     const scrollTopBtn = document.getElementById('scrollTop');
     if (!scrollTopBtn) return;
@@ -182,7 +169,7 @@ const CryptoLab = {
     });
   },
 
-  //  СЧЕТЧИК СИМВОЛОВ
+
   setupCharacterCounter() {
     const inputText = document.getElementById('inputText');
     const charCount = document.getElementById('charCount');
@@ -205,13 +192,12 @@ const CryptoLab = {
     updateCounter();
   },
 
-  // ИСТОРИЧЕСКАЯ СПРАВКА
   setupHistorySection() {
     this.setupTimelineAnimation();
 
   },
 
-  // АНИМАЦИЯ ТАЙМЛАЙНА
+
   setupTimelineAnimation() {
     const timelineItems = document.querySelectorAll('.timeline-item');
     if (!timelineItems.length) return;
@@ -252,7 +238,7 @@ const CryptoLab = {
     const USER_STORAGE_KEY = 'cryptolab_user_liked';
 
 
-    // Стартуем с 0 лайков
+
     let totalLikes = 666;
     let userLiked = localStorage.getItem(USER_STORAGE_KEY) === 'true';
 
@@ -260,7 +246,7 @@ const CryptoLab = {
       updateLikeCount(totalLikes);
       updateLikeButtonState(userLiked);
       updateUsersList();
-      // Убрана автоматическая анимация сердечка при загрузке
+
     };
 
     const updateLikeCount = (count) => {
@@ -388,7 +374,7 @@ const CryptoLab = {
     init();
   },
 
-  // ЧЕК-ЛИСТ БЕЗОПАСНОСТИ
+
   setupChecklist() {
     const checkboxes = document.querySelectorAll(
       '.checklist-item input[type="checkbox"]',
@@ -400,7 +386,7 @@ const CryptoLab = {
 
     const CHECKLIST_STORAGE_KEY = 'cryptolab_checklist';
 
-    // Загружаем сохранённое состояние
+
     const savedState = localStorage.getItem(CHECKLIST_STORAGE_KEY);
     if (savedState) {
       try {
@@ -422,11 +408,11 @@ const CryptoLab = {
       const total = checkboxes.length;
       progressEl.textContent = `${checkedCount}/${total} выполнено`;
 
-      // Сохраняем состояние
+
       const states = Array.from(checkboxes).map((cb) => cb.checked);
       localStorage.setItem(CHECKLIST_STORAGE_KEY, JSON.stringify(states));
 
-      // Поздравление при полном выполнении
+
       if (checkedCount === total && total > 0 && checkedCount > 0) {
         this.showNotification(
           '🎉 Отлично! Вы выполнили все пункты безопасности!',
@@ -435,12 +421,12 @@ const CryptoLab = {
       }
     };
 
-    // Добавляем обработчики
+
     checkboxes.forEach((checkbox) => {
       checkbox.addEventListener('change', updateProgress);
     });
 
-    // Сброс чек-листа
+
     if (resetBtn) {
       resetBtn.addEventListener('click', () => {
         checkboxes.forEach((cb) => {
@@ -451,11 +437,11 @@ const CryptoLab = {
       });
     }
 
-    // Инициализация
+
     updateProgress();
   },
 
-  // ===== БЫСТРЫЕ ПРИМЕРЫ =====
+
   setupExamples() {
     const exampleBtns = document.querySelectorAll('.example-btn');
 
@@ -490,7 +476,7 @@ const CryptoLab = {
     });
   },
 
-  // ===== ДЕМО-РЕЖИМ =====
+
   setupDemo() {
     const demoBtn = document.getElementById('demoBtn');
 
@@ -536,7 +522,7 @@ const CryptoLab = {
     this.showNotification(`Сгенерирован новый ключ: ${key}`, 'info');
   },
 
-  // ОБНОВЛЕНИЕ ИНФОРМАЦИИ ОБ АЛГОРИТМЕ
+
   updateAlgorithmInfo() {
     const algorithmSelect = document.getElementById('algorithmSelect');
     const algorithmInfo = document.getElementById('algorithmInfo');
@@ -798,7 +784,7 @@ const CryptoLab = {
     return result;
   },
 
-  //  ШИФР ВИЖЕНЕРА
+
   vigenereCipher(text, key, encrypt) {
     const cleanKey = key.toLowerCase().replace(/[^а-яa-z]/g, '');
     if (cleanKey.length === 0) return text;
@@ -848,8 +834,7 @@ const CryptoLab = {
 
     return result;
   },
-
-  //XOR ШИФРОВАНИЕ
+  //XOR
   xorCipher(text, key) {
     if (!key) return text;
 
@@ -863,7 +848,7 @@ const CryptoLab = {
     return result;
   },
 
-  //  ШИФР АТБАШ
+  //АТБАШ блядский
   atbashCipher(text) {
     let result = '';
 
@@ -896,7 +881,7 @@ const CryptoLab = {
     return result;
   },
 
-  //ВЫЧИСЛЕНИЕ СДВИГА ДЛЯ ЦЕЗАРЯ
+
   calculateShift(key) {
     if (!key) return 3;
 
@@ -908,7 +893,7 @@ const CryptoLab = {
     return (sum % 25) + 1;
   },
 
-  //  УВЕДОМЛЕНИЯ
+
   showNotification(message, type = 'info') {
     const existingNotifications = document.querySelectorAll(
       '.custom-notification',
@@ -962,7 +947,7 @@ const CryptoLab = {
   },
 };
 
-//ИНИЦИАЛИЗАЦИЯ ПРИ ЗАГРУЗКЕ
+
 document.addEventListener('DOMContentLoaded', () => {
   CryptoLab.init();
 });
@@ -979,13 +964,8 @@ class SecurityChecklist {
   }
 
   init() {
-    // Загружаем сохраненное состояние
     this.loadState();
-
-    // Добавляем обработчики событий
     this.addEventListeners();
-
-    // Обновляем прогресс
     this.updateProgress();
   }
 
@@ -1025,8 +1005,6 @@ class SecurityChecklist {
 
     if (this.progressSpan) {
       this.progressSpan.textContent = `${checkedCount}/${totalCount} выполнено`;
-
-      // Добавляем анимацию при достижении 100%
       if (checkedCount === totalCount) {
         this.progressSpan.style.color = '#10b981';
         this.progressSpan.style.fontWeight = '700';
@@ -1039,7 +1017,6 @@ class SecurityChecklist {
   }
 
   showAchievement(message) {
-    // Создаем или обновляем уведомление о достижении
     let achievement = document.querySelector('.checklist-achievement');
 
     if (!achievement) {
@@ -1082,22 +1059,18 @@ class SecurityChecklist {
     this.saveState();
     this.updateProgress();
 
-    // Удаляем сообщение о достижении
     const achievement = document.querySelector('.checklist-achievement');
     if (achievement) {
       achievement.remove();
     }
 
-    // Показываем уведомление о сбросе
     this.showNotification('Чек-лист сброшен', 'info');
   }
 
   showNotification(message, type = 'info') {
-    // Проверяем, существует ли функция showNotification
     if (typeof window.showNotification === 'function') {
       window.showNotification(message, type);
     } else {
-      // Создаем временное уведомление
       const notification = document.createElement('div');
       notification.className = `custom-notification notification-${type}`;
       notification.innerHTML = `
@@ -1120,7 +1093,6 @@ class SecurityChecklist {
   }
 
   addEventListeners() {
-    // Обработчики для чекбоксов
     this.checkboxes.forEach((checkbox) => {
       checkbox.addEventListener('change', () => {
         this.saveState();
@@ -1128,17 +1100,15 @@ class SecurityChecklist {
       });
     });
 
-    // Обработчик для кнопки сброса
     if (this.resetBtn) {
       this.resetBtn.addEventListener('click', () => this.resetChecklist());
     }
 
-    // Сохраняем состояние перед закрытием страницы
     window.addEventListener('beforeunload', () => this.saveState());
   }
 }
 
-// Добавляем CSS-анимацию для fadeOut
+
 const style = document.createElement('style');
 style.textContent = `
   @keyframes fadeOut {
@@ -1156,11 +1126,10 @@ style.textContent = `
 `;
 document.head.appendChild(style);
 
-// Инициализация после загрузки DOM
 document.addEventListener('DOMContentLoaded', () => {
   window.securityChecklist = new SecurityChecklist();
 });
-//ДОБАВЛЕНИЕ CSS-АНИМАЦИЙ
+//вкатываем css
 const animationStyles = `
     @keyframes fadeInUp {
         from {
