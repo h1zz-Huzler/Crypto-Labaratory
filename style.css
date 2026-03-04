@@ -1852,7 +1852,6 @@ body {
 .section {
     animation: fadeInUp 0.8s ease;
 }
-/* ===== ПРАКТИЧЕСКИЕ РЕКОМЕНДАЦИИ ===== */
 .recommendations-section {
     background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
     position: relative;
