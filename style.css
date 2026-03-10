@@ -43,7 +43,7 @@ body {
     overflow-x: hidden;
 }
 
-/* ФОН С ЗАМОЧКАМИ */
+
 .background-locks {
     position: fixed;
     top: 0;
@@ -85,7 +85,7 @@ body {
     }
 }
 
-/* Контейнер */
+
 .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -94,7 +94,7 @@ body {
     z-index: 2;
 }
 
-/* Прогресс-бар */
+
 .scroll-progress {
     position: fixed;
     top: 0;
@@ -106,7 +106,7 @@ body {
     transition: width 0.1s;
 }
 
-/* Кнопка наверх */
+
 .scroll-top {
     position: fixed;
     bottom: 30px;
@@ -139,7 +139,7 @@ body {
     transform: translateY(-3px);
 }
 
-/* Шапка */
+
 .header {
     position: fixed;
     top: 0;
@@ -157,7 +157,6 @@ body {
     box-shadow: var(--shadow);
 }
 
-/* Навигация */
 .nav {
     display: flex;
     justify-content: space-between;
@@ -218,7 +217,6 @@ body {
     background: rgba(99, 102, 241, 0.1);
 }
 
-/* Главный экран */
 .hero {
     padding: 140px 0 80px;
     background: linear-gradient(135deg, #0f172a, #1e293b);
@@ -321,7 +319,7 @@ body {
     animation: float 7s ease-in-out infinite;
 }
 
-/* Кнопки */
+
 .btn {
     display: inline-flex;
     align-items: center;
@@ -373,7 +371,7 @@ body {
     font-size: 1.1rem;
 }
 
-/* Заголовки секций */
+
 .section-title {
     font-size: 2.5rem;
     font-weight: 700;
@@ -397,7 +395,7 @@ body {
     margin-bottom: 3rem;
 }
 
-/* Историческая справка */
+
 .history {
     padding: 80px 0;
     background: white;
@@ -409,7 +407,7 @@ body {
     max-width: 800px;
     margin: 0 auto;
 }
-/* Иконки для таймлайна */
+
 .timeline-icon {
     width: 50px;
     height: 50px;
@@ -424,7 +422,7 @@ body {
     box-shadow: 0 4px 10px rgba(99, 102, 241, 0.3);
 }
 
-/* Обновляем существующий .timeline-content */
+
 .timeline-content {
     width: 400px;
     padding: 2rem;
@@ -523,7 +521,7 @@ body {
     font-weight: 500;
 }
 
-/* Лаборатория */
+
 .lab {
     padding: 80px 0;
     background: var(--light);
@@ -684,7 +682,7 @@ body {
     line-height: 1.6;
 }
 
-/* ВОЗВРАЩАЕМ: Рекомендации */
+
 .recommendations {
     padding: 80px 0;
     background: white;
@@ -793,7 +791,7 @@ body {
     color: var(--dark);
 }
 
-/* ВОЗВРАЩАЕМ: Сравнение инструментов */
+
 .comparison-section {
     background: var(--light);
     border-radius: var(--radius-xl);
@@ -887,7 +885,6 @@ body {
     color: white;
 }
 
-/* ВОЗВРАЩАЕМ: Чек-лист */
 .checklist-section {
     background: linear-gradient(135deg, #0f172a, #1e293b);
     border-radius: var(--radius-xl);
@@ -996,7 +993,7 @@ body {
     font-size: 0.95rem;
 }
 
-/* Призыв к действию */
+
 .recommendations-cta {
     text-align: center;
     background: var(--light);
@@ -1053,7 +1050,6 @@ body {
     color: var(--dark);
 }
 
-/* Обратная связь */
 .feedback {
     padding: 80px 0;
     background: linear-gradient(135deg, #0f172a, #1e293b);
@@ -1144,7 +1140,7 @@ body {
     color: var(--primary-light);
 }
 
-/* О проекте */
+
 .about {
     padding: 80px 0;
     background: white;
@@ -1185,7 +1181,7 @@ body {
     font-size: 0.95rem;
 }
 
-/* Подвал */
+
 .footer {
     background: var(--dark);
     color: white;
@@ -1267,7 +1263,7 @@ body {
     background: rgba(255, 255, 255, 0.2);
 }
 
-/* Уведомления */
+
 .notification {
     position: fixed;
     top: 80px;
@@ -1319,7 +1315,6 @@ body {
     }
 }
 
-/* Адаптивность */
 @media (max-width: 992px) {
     .hero .container {
         grid-template-columns: 1fr;
