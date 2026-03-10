@@ -1,4 +1,4 @@
-Документация кода CryptoLab
+# Документация кода CryptoLab
 Общее описание
 
 Класс CryptoLab реализует основной функционал криптографической лаборатории: шифрование/дешифрование текста, управление интерфейсом, работу с чек-листом безопасности и уведомления.
@@ -22,7 +22,7 @@
 
     Запускает init() и initChecklist()
 
-Методы инициализации
+# Методы инициализации
 init()
 
 Запускает все системы лаборатории:
@@ -37,7 +37,7 @@ init()
 
     updateAlgorithmInfo() - обновление информации об алгоритме
 
-Настройка обработчиков событий
+# Настройка обработчиков событий
 setupEventListeners()
 
 Привязывает обработчики к кнопкам:
@@ -56,9 +56,9 @@ setupEventListeners()
 
     algorithmSelect - обновление информации при смене алгоритма
 
-setupScrollEffects()
 
-Управляет эффектами при прокрутке страницы:
+# setupScrollEffects()
+# Управляет эффектами при прокрутке страницы:
 
     Добавляет класс scrolled к шапке при прокрутке > 50px
 
@@ -68,8 +68,7 @@ setupScrollEffects()
 
     Вызывает updateActiveNavLink() для подсветки активного пункта меню
 
-setupMobileNav()
-
+# setupMobileNav()
 Реализует мобильное меню:
 
     Открытие/закрытие меню при клике на гамбургер
@@ -90,10 +89,10 @@ updateActiveNavLink()
     Добавляет класс active соответствующей ссылке
 
 Работа с интерфейсом
-updateCharCount()
+# updateCharCount()
 
 Обновляет счётчик символов в поле ввода.
-updateAlgorithmInfo()
+# updateAlgorithmInfo()
 
 Обновляет текстовое описание текущего алгоритма:
 
@@ -102,7 +101,7 @@ updateAlgorithmInfo()
     В зависимости от выбранного алгоритма показывает соответствующее описание
 
 Работа с ключами
-generateKey()
+# generateKey()
 
 Генерирует случайный ключ:
 
@@ -113,7 +112,7 @@ generateKey()
     Показывает уведомление об успешной генерации
 
 Шифрование/Дешифрование
-encrypt()
+# encrypt()
 
 Запускает процесс шифрования:
 
@@ -125,13 +124,13 @@ encrypt()
 
     Показывает уведомление об успехе или ошибке
 
-decrypt()
+# decrypt()
 
 Запускает процесс дешифрования:
 
     Аналогично encrypt(), но с параметром false
 
-validateInputs()
+# validateInputs()
 
 Проверяет корректность входных данных:
 
@@ -141,7 +140,7 @@ validateInputs()
 
     Возвращает true/false и показывает уведомление об ошибке
 
-processText(encrypt)
+# processText(encrypt)
 
 Основной метод обработки текста:
 
@@ -152,7 +151,7 @@ processText(encrypt)
     Возвращает обработанный текст
 
 Алгоритмы шифрования
-caesarCipher(text, shift, encrypt)
+# caesarCipher(text, shift, encrypt)
 
 Шифр Цезаря:
 
@@ -164,7 +163,7 @@ caesarCipher(text, shift, encrypt)
 
     Неалфавитные символы остаются без изменений
 
-vigenereCipher(text, key, encrypt)
+# vigenereCipher(text, key, encrypt)
 
 Шифр Виженера:
 
@@ -176,7 +175,7 @@ vigenereCipher(text, key, encrypt)
 
     Поддерживает русский и английский алфавиты
 
-xorCipher(text, key)
+# xorCipher(text, key)
 
 XOR шифрование:
 
@@ -200,7 +199,7 @@ atbashCipher(text)
 
     a (97) → z (122)
 
-calculateShift(key)
+# calculateShift(key)
 
 Вычисляет сдвиг для шифра Цезаря на основе ключа:
 
@@ -209,7 +208,7 @@ calculateShift(key)
     Возвращает остаток от деления на 25 + 1 (сдвиг от 1 до 25)
 
 Вспомогательные методы
-clear()
+# clear()
 
 Очищает все поля:
 
@@ -219,7 +218,7 @@ clear()
 
     Обновляет счётчик символов
 
-copy()
+# copy()
 
 Копирует результат в буфер обмена:
 
@@ -230,7 +229,7 @@ copy()
     Показывает уведомление об успехе
 
 Чек-лист безопасности
-initChecklist()
+# initChecklist()
 
 Инициализирует систему чек-листа:
 
@@ -245,7 +244,7 @@ initChecklist()
     Сохраняет состояние в localStorage при изменениях
 
 Система уведомлений
-showNotification(message, type)
+# showNotification(message, type)
 
 Создаёт и показывает всплывающее уведомление:
 
@@ -257,7 +256,7 @@ showNotification(message, type)
 
     Поддерживаемые типы: success, error, warning, info
 
-getIcon(type)
+# getIcon(type)
 
 Возвращает иконку FontAwesome для соответствующего типа уведомления:
 
