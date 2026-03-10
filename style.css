@@ -1243,8 +1243,30 @@ body {
     gap: 1rem;
 }
 
-.footer-bottom p {
+.copyright {
     color: rgba(255, 255, 255, 0.5);
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.license-link {
+    color: var(--primary-light);
+    text-decoration: none;
+    padding: 4px 12px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    font-size: 0.85rem;
+    transition: all 0.3s;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.license-link:hover {
+    background: var(--primary);
+    color: white;
+    border-color: var(--primary);
 }
 
 .github-link {
@@ -1256,11 +1278,14 @@ body {
     padding: 8px 16px;
     background: rgba(255, 255, 255, 0.1);
     border-radius: var(--radius);
-    transition: background 0.3s;
+    transition: all 0.3s;
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .github-link:hover {
     background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+    border-color: var(--primary-light);
 }
 
 
