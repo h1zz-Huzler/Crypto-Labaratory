@@ -1,8 +1,8 @@
 :root {
-    --primary: #009eff;
-    --primary-dark: #0da9d9;
-    --primary-light: #12b3ab;
-    --secondary: #10b981;
+    --primary: #38a3a5;
+    --primary-dark: #22577a;
+    --primary-light: #57cc99;
+    --secondary: #80ed99;
     --dark: #1e293b;
     --dark-light: #334155;
     --light: #f8fafc;
@@ -237,12 +237,12 @@ body {
     font-size: 3.5rem;
     font-weight: 800;
     line-height: 1.2;
-    color: darkcyan;
+    color: lightgreen;
     margin-bottom: 1.5rem;
 }
 
 .title-highlight {
-    background: linear-gradient(135deg, var(--primary-light), var(--secondary));
+    background: lightgreen;
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
